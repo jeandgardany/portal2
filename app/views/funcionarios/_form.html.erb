@@ -1,0 +1,126 @@
+<%= form_for @funcionario, :html => { :class => "form-horizontal funcionario" } do |f| %>
+
+  <% if @funcionario.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@funcionario.errors.count, "error") %> prohibited this funcionario from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @funcionario.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :matricula, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :matricula, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:matricula) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :nome, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :nome, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nome) %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :nascimento, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.date_select :nascimento, :start_year => 1960, :order => [:day, :month, :year], :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nascimento) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :sexo, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select(:sexo, ["Feminino", "Masculino"], prompt: "Selecione") %>
+    </div>
+    <%=f.error_span(:sexo) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :cpf, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :cpf, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:cpf) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :rg, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :rg, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:rg) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :endereco, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :endereco, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:endereco) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :admissao, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.date_select :admissao, :order => [:day, :month, :year], :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:admissao) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :salario, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :salario, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:salario) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :carga_horaria, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :carga_horaria, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:carga_horaria) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :turno, :class => 'control-label col-lg-2' %>
+  <div class="col-lg-10">
+    <%= f.select(:turno, ["Manhã","Tarde", "Noite", "Manhã e Tarde", "Manhã e Noite", "Tarde e Noite"], prompt: "Selecione") %>
+    </div>
+    <%=f.error_span(:turno) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :status, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.select(:status, ["Ativo", "Inativo"]) %>
+    </div>
+    <%=f.error_span(:status) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_select :user_id, User.all, :id, :email, prompt: true, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:user_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :funcao_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_select :funcao_id, Funcao.all, :id, :cargo, prompt: true, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:funcao_id) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                funcionarios_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

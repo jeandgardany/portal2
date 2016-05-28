@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<% if policy(@funcionarios).index? %>
+
+<%= render partial: "admin_index" %>
+
+<% elsif policy(@funcionarios).users_index? %>
+
+<%= render partial: "users_index" %>
+
+<% else %>
+
+<% flash[:notice] = 'Você não tem permissão para fazer esta ação' %>
+
+<% end %> 

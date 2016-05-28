@@ -1,0 +1,34 @@
+<%- model_class = Curso -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= "Código" %></th>
+      <th><%= "Duração" %></th>
+      <th><%= model_class.human_attribute_name(:tipo) %></th>
+      <th><%= model_class.human_attribute_name(:valor) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= "Cadastrado em" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cursos.each do |curso| %>
+      <tr>
+        <td><%= curso.id %></td>
+        <td><%= curso.nome %></td>
+        <td><%= curso.codigo %></td>
+        <td><%= curso.duracao %></td>
+        <td><%= curso.tipo %></td>
+        <td><%= curso.valor %></td>
+        <td><%= curso.status %></td>
+        <td><%=l curso.created_at %></td>
+        
+      </tr>
+    <% end %>
+    <%= paginate @cursos %>
+  </tbody>
+</table>

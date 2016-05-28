@@ -1,0 +1,15 @@
+
+<% @usuario = current_user %>
+<% if @usuario.administrador? %>
+
+<%= render partial: "admin_index" %>
+
+<% elsif @usuario.atendente? %>
+
+<%= render partial: "users_index" %>
+
+<% else %>
+
+<%= render partial: "aluno_index" %>
+
+<% end %> 

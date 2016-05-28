@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<% if policy(@matriculas).index? %>
+
+<%= render partial: "admin_index" %>
+
+<% else %>
+
+<%= render partial: "users_index" %>
+
+<% end %> 

@@ -1,0 +1,54 @@
+<%= form_for(@matricula) do |f| %>
+  <% if @matricula.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@matricula.errors.count, "error") %> prohibited this matricula from being saved:</h2>
+
+      <ul>
+      <% @matricula.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numero %><br>
+    <%= f.number_field :numero %>
+  </div>
+  <div class="field">
+    <%= f.label :semestre %><br>
+    <%= f.text_field :semestre %>
+  </div>
+  <div class="field">
+    <%= f.label :inicio %><br>
+    <%= f.date_select :inicio %>
+  </div>
+  <div class="field">
+    <%= f.label :fim %><br>
+    <%= f.date_select :fim %>
+  </div>
+  <div class="field">
+    <%= f.label :valor %><br>
+    <%= f.text_field :valor %>
+  </div>
+  <div class="field">
+    <%= f.label :aluno_id %><br>
+    <%= f.collection_select :aluno_id, Aluno.all, :id, :nome, prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :funcionario_id %><br>
+    <%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome, prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :turma_ids %><br>
+    <%= f.collection_select :turma_ids, Turma.all, :id, :codigo,{}, {:multiple => true, class: 'select2 '} %>
+  </div>
+   <div class="field">
+    <%= f.label :disciplina_ids %><br>
+    <%= f.collection_select :disciplina_ids, Disciplina.all, :id, :nome,{}, {:multiple => true, class: 'select2 '} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+            

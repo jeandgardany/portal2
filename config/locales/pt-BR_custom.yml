@@ -1,0 +1,10 @@
+
+"pt-BR":
+  activerecord:
+    views:
+      funcao: "Função"
+    attributes:
+      funcao:
+        id: "Identificador"
+        cargo: "Cargo"
+        created_at: "Cadastrado em"

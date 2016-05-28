@@ -1,0 +1,42 @@
+<%- model_class = Funcionario -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= "Matrícula" %></th>
+      <th><%= model_class.human_attribute_name(:nascimento) %></th>
+      <th><%= "Endereço" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= "Admissão" %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= "Usuário" %></th>
+      <th><%= "Cargo" %></th>
+      <th><%= model_class.human_attribute_name(:sexo) %></th>
+      <th><%= "Carga Horária" %></th>
+      <th><%= "Turno" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @funcionarios.each do |funcionario| %>
+      <tr>
+        <td><%= link_to funcionario.id, funcionario_path(funcionario) %></td>
+        <td><%= funcionario.nome %></td>
+        <td><%= funcionario.matricula %></td>
+        <td><%= funcionario.nascimento %></td>
+        <td><%= funcionario.endereco %></td>
+        <td><%= funcionario.admissao %></td>
+        <td><%= funcionario.status %></td>
+        <td><%= funcionario.user.email %></td>
+        <td><%= funcionario.funcao.cargo %></td>
+        <td><%= funcionario.sexo %></td>
+        <td><%= funcionario.carga_horaria %></td>
+        <td><%= funcionario.turno %></td>
+      </tr>
+    <% end %>
+    <%= paginate @funcionarios %>
+  </tbody>
+</table>

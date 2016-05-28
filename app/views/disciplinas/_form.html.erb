@@ -1,0 +1,55 @@
+<%= form_for @disciplina, :html => { :class => "form-horizontal disciplina" } do |f| %>
+
+  <% if @disciplina.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@disciplina.errors.count, "error") %> prohibited this disciplina from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @disciplina.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+   <div class="form-group">
+    <%= f.label :codigo, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :codigo, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:codigo) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :nome, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :nome, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nome) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :status, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.select(:status, ["Ativo", "Inativo", "Suspenso"], prompt: "Selecione") %>
+    </div>
+    <%=f.error_span(:status) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :funcionario_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome, prompt: true, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:funcionario_id) %>
+  </div>
+      
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                disciplinas_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

@@ -1,0 +1,51 @@
+<%- model_class = Funcao -%>
+<div class="page-header">
+  <h1><%= "Matrículas" %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:numero) %></th>
+      <th><%= model_class.human_attribute_name(:inicio) %></th>
+      <th><%= model_class.human_attribute_name(:fim) %></th>
+      <th><%= model_class.human_attribute_name(:valor) %></th>
+      <th><%= model_class.human_attribute_name(:aluno) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= model_class.human_attribute_name(:funcionario) %>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= "Curso" %>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matriculas.each do |matricula| %>
+      <tr>
+        <td><%= link_to matricula.id, matricula_path(matricula) %></td>
+        <td><%= matricula.numero %></td>
+        <td><%= matricula.inicio %></td>
+        <td><%= matricula.fim %></td>
+        <td>R$ <%= matricula.valor %>,00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= matricula.aluno.nome %></td>
+        <td><%= matricula.funcionario.nome %></td>
+        <td><%= matricula.aluno.curso_nome %></td>
+        <td><%=l matricula.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_matricula_path(matricula), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      matricula_path(matricula),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem certeza?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+          <%= link_to 'Mostrar', matricula, :class => 'btn btn-default btn-xs'%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_matricula_path,
+            :class => 'btn btn-primary' %>

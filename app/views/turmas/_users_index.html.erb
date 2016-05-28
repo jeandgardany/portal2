@@ -1,0 +1,28 @@
+<%- model_class = Turma -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= "Código" %></th>
+      <th><%= model_class.human_attribute_name(:turno) %></th>
+      <th><%= model_class.human_attribute_name(:semestre) %></th>
+      <th><%= model_class.human_attribute_name(:capacidade) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @turmas.each do |turma| %>
+      <tr>
+        <td><%= turma.id %></td>
+        <td><%= turma.codigo %></td>
+        <td><%= turma.turno %></td>
+        <td><%= turma.semestre %></td>
+        <td><%= turma.capacidade %></td>
+        <td><%= turma.disciplina_nome %></td>
+      </tr>
+    <% end %>
+    <%= paginate @turmas %>
+  </tbody>
+</table>
