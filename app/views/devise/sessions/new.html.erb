@@ -1,26 +1,33 @@
-<h2>Login</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :Email %><br />
-    <%= f.email_field :email, autofocus: true %>
+ 
+<div class="panel panel-default devise-bs">
+  <div class="panel-heading" >
+    <h4><%= t('.sign_in', :default => "Sign in") %></h4>
   </div>
-
-  <div class="field">
-    <%= f.label :Senha %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="panel-body" >
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: "form" }) do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <div class="col-lg-6">
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        </div>
+        <%=f.error_span(:email) %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <div class="col-lg-6">
+        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        </div>
+        <%=f.error_span(:password) %>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="checkbox">
+          <%= f.label :remember_me do %>
+            <%= f.check_box :remember_me %>Lembrar de mim
+          <% end %>
+        </div>
+      <% end %>
+      <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-primary" %>
+    <% end %>
   </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :Lembrar %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Login" %>
-  </div>
-<% end %>
-
+</div>
 <%= render "devise/shared/links" %>

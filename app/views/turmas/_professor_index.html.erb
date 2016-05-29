@@ -1,0 +1,23 @@
+<body>
+  
+    <ul>
+     <% @usuario = current_user %>
+     <% @usuario.funcionarios.each do |funcionario| %>
+     <h2>Lista de alunos do Professor(a): <%= funcionario.nome %></h2>
+     <% @func = funcionario %>
+   <% @func.matriculas.each do |mat| %>
+   <li><%= "Nº da Matricula: #{mat.numero} - Nome do Aluno: #{mat.aluno.nome}" %></li>
+
+  
+
+
+      
+      <% end %>
+      <% end %>
+      <li><%= link_to 'Editar', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+
+    </ul>
+</body>
+    
+

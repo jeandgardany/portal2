@@ -4,9 +4,13 @@
 
 <%= render partial: "admin_index" %>
 
-<% elsif @usuario.atendente? %>
+<% elsif @usuario.atendente? or @usuario.coordenador? %>
 
 <%= render partial: "users_index" %>
+
+<% elsif @usuario.professor? %>
+
+<%= render partial: "professor_index" %>
 
 <% else %>
 

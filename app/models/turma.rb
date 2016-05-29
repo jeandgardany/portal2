@@ -13,12 +13,5 @@ class Turma < ActiveRecord::Base
       self.funcionario.nome
     end
   end
-  def disciplina_nome
-  	if self.disciplina.blank?
-      "Sem Cadastro"
-    else
-      self.disciplina.nome
-    end
-  end
 
 end

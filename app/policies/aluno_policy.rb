@@ -3,13 +3,13 @@ class AlunoPolicy < ApplicationPolicy
   	user.administrador?
   end
   def show?
-    user.administrador?
+    user.administrador? | user.coordenador?
   end
   def edit?
-    user.administrador?
+    user.administrador? | user.coordenador?
   end
   def update?
-  	user.administrador?	
+  	user.administrador?	| user.coordenador?
   end
   def destroy?
   	user.administrador?

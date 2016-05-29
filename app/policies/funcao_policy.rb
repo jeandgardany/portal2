@@ -3,7 +3,7 @@ class FuncaoPolicy < ApplicationPolicy
   		user.administrador?
   	end
     def users_index?
-      user.atendente? | user.coordenador?
+      user.atendente?
     end
   	def show?
   		user.administrador?

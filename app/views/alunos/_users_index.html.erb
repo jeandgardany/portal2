@@ -18,7 +18,8 @@
       <th><%= model_class.human_attribute_name(:curso_id) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= model_class.human_attribute_name(:sexo) %></th>
       <th><%= model_class.human_attribute_name(:mensalidade) %></th>
-     
+      <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -36,7 +37,17 @@
         <td><%= aluno.curso_nome %></td><!--O metodo curso_nome esta no models aluno, serve pra corrigir erro de nada cadastrado.-->
         <td><%= aluno.sexo %></td>
         <td><%= aluno.mensalidade %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_aluno_path(aluno), :class => 'btn btn-default btn-xs' %>
+          <%= link_to 'Mostrar', aluno, :class => 'btn btn-default btn-xs'%>
+      </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_aluno_path,
+            :class => 'btn btn-primary' %>
+

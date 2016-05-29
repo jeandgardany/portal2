@@ -6,7 +6,7 @@ class MatriculaPolicy < ApplicationPolicy
   	user.administrador?
   end
   def edit?
-  	user.administrador?
+  	user.administrador? | user.atendente?
   end
   def update?
   	user.administrador? | user.atendente? 	

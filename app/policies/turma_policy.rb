@@ -1,6 +1,6 @@
 class TurmaPolicy < ApplicationPolicy
   def index?
-  	user.administrador? or user.coordenador?
+  	user.administrador? or user.coordenador? or user.professor?
   end
   def edit?
   	user.administrador? or user.coordenador?

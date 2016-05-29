@@ -1,11 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<% if policy(@matriculas).index? %>
+<% @usuario = current_user %>
+<% if @usuario.administrador? %>
 
 <%= render partial: "admin_index" %>
 
-<% else %>
+<% elsif @usuario.atendente? or @usuario.coordenador? %>
 
 <%= render partial: "users_index" %>
+
+<% else %>
+
+<% flash[:notice] = 'Você não tem permissão para fazer esta ação' %>
 
 <% end %> 

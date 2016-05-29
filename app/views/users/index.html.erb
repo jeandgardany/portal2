@@ -1,28 +1,9 @@
 
-<div class="container">
-  <div class="row">
-  
-    <h3>Usuários</h3>
-    <div class="column">
-      <table class="table">
-      <thead>
-    <tr>
-      <th>Identificador &nbsp;&nbsp;</th>
-      <th>Usuário &nbsp;&nbsp;&nbsp;</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-        <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <%= render user %>
-            </tr>
-          <% end %>
-          <%= paginate @users %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-<br>
-<%= link_to 'Voltar', root_path %>
+<% @usuario = current_user %>
+<% if @usuario.administrador? %>
+<%= render partial: "users" %>
+<% elsif @usuario.aluno? %>
+<%= render partial: "aluno" %>
+<% else %>
+<%= render partial: "user" %>
+<% end %> 
