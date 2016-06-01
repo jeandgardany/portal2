@@ -9,12 +9,12 @@
       <th><%= model_class.human_attribute_name(:numero) %></th>
       <th><%= model_class.human_attribute_name(:inicio) %></th>
       <th><%= model_class.human_attribute_name(:fim) %></th>
-      <th><%= model_class.human_attribute_name(:valor) %></th>
+      <th><%= model_class.human_attribute_name(:valor) %>&nbsp;&nbsp;</th>
       <th><%= model_class.human_attribute_name(:aluno) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= model_class.human_attribute_name(:funcionario) %>&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= "Curso" %>&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= model_class.human_attribute_name(:created_at) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
   </thead>
 
@@ -25,7 +25,7 @@
         <td><%= matricula.numero %></td>
         <td><%= matricula.inicio %></td>
         <td><%= matricula.fim %></td>
-        <td>R$ <%= matricula.valor %>,00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>R$<%= matricula.valor %>,00</td>
         <td><%= matricula.aluno.nome %></td>
         <td><%= matricula.funcionario.nome %></td>
         <td><%= matricula.aluno.curso_nome %></td>

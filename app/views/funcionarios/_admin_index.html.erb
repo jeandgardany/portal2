@@ -14,10 +14,9 @@
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= "Usuário" %></th>
       <th><%= "Cargo" %></th>
-      <th><%= model_class.human_attribute_name(:sexo) %></th>
       <th><%= "Carga Horária" %></th>
       <th><%= "Turno" %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -32,7 +31,6 @@
         <td><%= funcionario.status %></td>
         <td><%= funcionario.user.email %></td>
         <td><%= funcionario.funcao.cargo %></td>
-        <td><%= funcionario.sexo %></td>
         <td><%= funcionario.carga_horaria %></td>
         <td><%= funcionario.turno %></td>
         <td>

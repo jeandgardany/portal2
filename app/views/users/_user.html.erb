@@ -1,25 +1,25 @@
 <body>
-  
+
     <ul>
       <% @usuario = current_user %>
       <% @usuario.funcionarios.each do |funcionario| %>
-    <h2>Bem vindo: </h2>
-    <h3><p><%= funcionario.funcao.cargo %>(a) <%= funcionario.nome %></p></h3>
+     <h2>Bem vindo: </h2>
+     <h3><p><%= funcionario.funcao.cargo %>(a) <%= funcionario.nome %></p></h3>
      <p><li>Matricula: <%= funcionario.matricula %></li></p>
      <p><li>Nome: <%= funcionario.nome %></li></p>
      <p><li>E-mail: <%= funcionario.user.email %></li></p>
      <p><li>Endereço: <%= funcionario.endereco %></li></p>
      <p><li>Salario: R$ <%= funcionario.salario %>,00</li></p>
-     <p><li>Curso: <%= funcionario.turno %></li></p>
+     <p><li>Turno: <%= funcionario.turno %></li></p>
      <p><li>Carga Horária: <%= funcionario.carga_horaria %></li></p>
      <p><li>Cadastrado: <%= funcionario.created_at %></li></p>
-      
-    
+
+
   <% end %>
       <li><%= link_to 'Editar', edit_user_registration_path, :class => 'navbar-link' %> |
       <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
 
     </ul>
 </body>
-    
+
 

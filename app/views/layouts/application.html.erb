@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <img align="center" width="300px" height="100px" src="/imagens/portal.jpg" /> 
+    <img align="center" width="300px" height="100px" src=http://uninovafapi.edu.br/portalacademico/images/portal.jpg />
 
     <title><%= content_for?(:title) ? yield(:title) : "Portal" %></title>
 
@@ -55,8 +55,8 @@
         <%= render partial: "layouts/professor" %>
         <% else %>
         <%= render partial: "layouts/logout" %>
-        <% end %> 
- 
+        <% end %>
+
        <div class="container">
       <div class="row">
         <div class="col-lg-10">
@@ -72,7 +72,7 @@
           <%= link_to "Cadastro", new_user_registration_path, :class => 'navbar-link'  %> |
           <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
         <% end %>
-      
+
         </div><!--/span-->
       </div><!--/row-->
 
