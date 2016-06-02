@@ -1,19 +1,13 @@
 
 <% @usuario = current_user %>
 <% if @usuario.administrador? %>
-
 <%= render partial: "admin_index" %>
-
 <% elsif @usuario.atendente? or @usuario.coordenador? %>
-
 <%= render partial: "users_index" %>
-
 <% elsif @usuario.professor? %>
-
 <%= render partial: "professor_index" %>
-
+<% elsif @usuario.visitante? %>
+<%= render partial: "visitante" %>
 <% else %>
-
 <%= render partial: "aluno_index" %>
-
 <% end %> 

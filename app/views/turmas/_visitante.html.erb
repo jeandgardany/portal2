@@ -1,0 +1,15 @@
+
+<body>
+
+    <ul>
+      <% @usuario = current_user %>
+  <h2>Bem vindo: <%= @usuario.email %></h2> <!-- metod aluno_nome esta no model user, usado pra nao da erro quando não tem nenhuma luno cadastrado -->
+
+     <p><%= "Aguarde finalizar o cadastro para voce ter acesso ao sistema!" %></p>
+     
+      <li><%= link_to 'Editar', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+
+    </ul>
+</body>
+

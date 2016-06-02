@@ -8,7 +8,7 @@ class ApplicationPolicy
   def dashboard?
     user.administrador?
   end
-
+  
   def index?
     false
   end

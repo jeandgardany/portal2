@@ -4,6 +4,8 @@
 <%= render partial: "users" %>
 <% elsif @usuario.aluno? %>
 <%= render partial: "aluno" %>
+<% elsif @usuario.visitante? %>
+<%= render partial: "visitante" %>
 <% else %>
 <%= render partial: "user" %>
 <% end %> 

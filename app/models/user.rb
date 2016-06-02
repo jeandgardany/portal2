@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  enum role: [ :aluno, :atendente, :coordenador, :professor, :administrador ]
+  enum role: [ :visitante, :aluno, :atendente, :coordenador, :professor, :administrador ]
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
