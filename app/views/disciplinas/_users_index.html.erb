@@ -9,7 +9,6 @@
       <th><%= model_class.human_attribute_name(:nome) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= "Código" %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= "Curso" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= "Funcionário" %></th>
       <th><%= "Cadastrado em" %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
@@ -22,7 +21,6 @@
         <td><%= disciplina.nome %></td>
         <td><%= disciplina.codigo %></td>
         <td><%= disciplina.status %></td>
-        <td><%= disciplina.curso_nome %></td>
         <td><%= disciplina.funcionario.nome %></td>
         <td><%=l disciplina.created_at %></td>
         <td>

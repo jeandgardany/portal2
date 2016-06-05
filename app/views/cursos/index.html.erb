@@ -1,11 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<% if policy(@cursos).index? %>
-
+<% @usuario = current_user %>
+<% if @usuario.administrador? %>
 <%= render partial: "admin_index" %>
-
+<% elsif @usuario.aluno? %>
+<%= render partial: "aluno_index" %>
 <% else %>
-
 <%= render partial: "users_index" %>
-
 <% end %> 

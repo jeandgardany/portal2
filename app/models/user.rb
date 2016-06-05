@@ -15,14 +15,14 @@ class User < ActiveRecord::Base
       self.aluno.nome
     end
   end
-    def aluno_mat
-    if self.aluno.blank?
-      "Sem Cadastro"
-    else
-      self.aluno.mat
-    end
-    end
-      def aluno_created_at
+  def aluno_matricula
+  if self.aluno.blank?
+    "Sem Cadastro"
+  else
+    self.aluno.matricula
+  end
+end   
+    def aluno_created_at
     if self.aluno.blank?
       "Sem Cadastro"
     else
@@ -51,4 +51,18 @@ def aluno_curso
     end
   end
 
+def mat_id
+    if self.matricula.blank?
+      "Sem Cadastro"
+    else
+      self.matricula.id
+    end
+  end
+  def curso_nome
+    if self.curso.blank?
+      "Sem Cadastro"
+    else
+      self.curso.nome
+    end
+  end
 end

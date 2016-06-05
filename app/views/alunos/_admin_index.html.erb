@@ -8,14 +8,14 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:nome) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th><%= "Matrícula" %></th>
+      <th><%= "Matricula" %></th>
       <th><%= "Nascimento" %></th>
       <th><%= "Endereço" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= "Telefone" %></th>
       <th><%= model_class.human_attribute_name(:cpf) %></th>
       <th><%= model_class.human_attribute_name(:rg) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= "Usuário" %></th>
-      <th><%= model_class.human_attribute_name(:curso_id) %></th>
       <th><%= model_class.human_attribute_name(:sexo) %></th>
       <th><%= model_class.human_attribute_name(:mensalidade) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
@@ -26,16 +26,16 @@
       <tr>
         <td><%= link_to aluno.id, aluno_path(aluno) %></td>
         <td><%= aluno.nome %></td>
-        <td><%= aluno.mat %></td>
+        <td><%= aluno.mat_id %></td><!--O metodo curso_nome esta no models aluno, serve pra corrigir erro de nada cadastrado.-->
         <td><%= aluno.nascimento %></td>
         <td><%= aluno.endereco %></td>
-        <td><%= aluno.cpf %></td>
+        <td><%= formata_telefone(aluno.telefone) %></td>
+        <td><%= formata_cpf(aluno.cpf) %></td>
         <td><%= aluno.rg %></td>
         <td><%= aluno.status %></td>
         <td><%= aluno.user.email %></td>
-        <td><%= aluno.curso_nome %></td><!--O metodo curso_nome esta no models aluno, serve pra corrigir erro de nada cadastrado.-->
         <td><%= aluno.sexo %></td>
-        <td>R$<%= aluno.mensalidade %>,00</td>
+        <td><%= valor_formatado(aluno.mensalidade) %></td><!-- Formata numero para valor, esta no help -->
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_aluno_path(aluno), :class => 'btn btn-default btn-xs' %>

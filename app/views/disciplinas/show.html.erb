@@ -13,10 +13,10 @@
   <dt><strong><%= model_class.human_attribute_name(:turma_id) %>:</strong></dt>
   <dd><%= @disciplina.turma_codigo %></dd>
   <dt><strong><%= model_class.human_attribute_name(:funcionario_id) %>:</strong></dt>
-  <dd><%= @disciplina.funcionario.nome %></dd>
+  <dd><%= @disciplina.funcionario_nome %></dd>
   <dt><strong><%= "Alunos:" %></strong>&nbsp;&nbsp;&nbsp;&nbsp;</dt>
-  <% @disciplina.alunos.each do |aluno| %>
-  <dd><li><%= "#{aluno.mat} - #{aluno.nome}" %></li></dd>
+  <% @disciplina.matriculas.each do |mat| %>
+  <dd><li><%= mat.aluno_nome %></li></dd>
   <% end %> 
 </dl>
 

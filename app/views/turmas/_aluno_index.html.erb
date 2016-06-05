@@ -4,14 +4,14 @@
       <% @usuario = current_user %>
   <h2>Turmas de: <%= @usuario.aluno.nome %></h2>
       
-     <p><li>Matricula: <%= @usuario.aluno.mat %></li></p>
+     <p><li>Matrícula: <%= @usuario.aluno.mat_id %></li></p><!-- Metodo esta no model/aluno #erro -->
      <p><li>Nome: <%= @usuario.aluno.nome %></li></p>
      <p><li>E-mail: <%= @usuario.email %></li></p>
-     <p><li>Curso: <%= @usuario.aluno.curso_nome %></li></p>
-     <p><li>Turmas: <%= @usuario.aluno.turmas.size %></li></p>
+     <p><li>Curso: <%= @usuario.aluno.matricula.curso_nome %></li></p>
+     <p><li>Qtd. de Turmas: <%= @usuario.aluno.matricula.turmas.size %></li></p>
      <p><li>Turmas:</li></p>
-     <% @usuario.aluno.turmas.each do |turma| %>
-    <%= "#{turma.codigo} - #{turma.semestre}" %>
+     <% @usuario.aluno.matricula.turmas.each do |turma| %>
+    <p><%= "#{turma.codigo} - #{turma.semestre}" %></p>
     <% end %>
    
       <li><%= link_to 'Editar', edit_user_registration_path, :class => 'navbar-link' %> |

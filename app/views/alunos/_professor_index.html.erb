@@ -5,12 +5,9 @@
      <% @usuario.funcionarios.each do |funcionario| %>
      <h2>Lista de alunos do Professor(a): <%= funcionario.nome %></h2>
      <% @func = funcionario %>
-	 <% @func.matriculas.each do |mat| %>
-	 <li><%= "Nº da Matricula: #{mat.numero} - Nome do Aluno: #{mat.aluno.nome}" %></li>
-
-  
-
-
+	   <% @func.matriculas.each do |mat| %>
+       <li><%= "Alunos" %></li>
+	     <p><li><%= "Nº da Matricula: #{mat.id} - Nome do Aluno: #{mat.aluno.nome}" %></li></p>
       
   	  <% end %>
   	  <% end %>

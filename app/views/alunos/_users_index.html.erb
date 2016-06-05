@@ -15,7 +15,6 @@
       <th><%= model_class.human_attribute_name(:rg) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= "Usuário" %></th>
-      <th><%= model_class.human_attribute_name(:curso_id) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= model_class.human_attribute_name(:sexo) %></th>
       <th><%= model_class.human_attribute_name(:mensalidade) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
@@ -27,14 +26,13 @@
       <tr>
         <td><%= aluno.id %></td>
         <td><%= aluno.nome %></td>
-        <td><%= aluno.mat %></td>
+        <td><%= aluno.mat_id %></td>
         <td><%= aluno.nascimento %></td>
         <td><%= aluno.endereco %></td>
         <td><%= aluno.cpf %></td>
         <td><%= aluno.rg %></td>
         <td><%= aluno.status %></td>
         <td><%= aluno.user.email %></td>
-        <td><%= aluno.curso_nome %></td><!--O metodo curso_nome esta no models aluno, serve pra corrigir erro de nada cadastrado.-->
         <td><%= aluno.sexo %></td>
         <td><%= aluno.mensalidade %></td>
         <td>

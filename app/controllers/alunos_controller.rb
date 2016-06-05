@@ -1,6 +1,8 @@
 class AlunosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_aluno, only: [:show, :edit, :update, :destroy]
+  before_action :set_users, only: [:new, :show, :edit, :update, :create]
+  before_action :set_matriculas, only: [:new, :show, :edit, :update, :create]
 
   # GET /alunos
   # GET /alunos.json
@@ -11,21 +13,18 @@ class AlunosController < ApplicationController
   # GET /alunos/1
   # GET /alunos/1.json
   def show
-    @users = User.all
-    @cursos = Curso.all
+    
   end
 
   # GET /alunos/new
   def new
     @aluno = Aluno.new
-    @users = User.all
-    @cursos = Curso.all
+    
   end
 
   # GET /alunos/1/edit
   def edit
-    @users = User.all
-    @cursos = Curso.all
+    
   end
 
   # POST /alunos
@@ -76,6 +75,13 @@ class AlunosController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def aluno_params
-      params.require(:aluno).permit(:mat, :nome, :sexo, :nascimento, :endereco, :cpf, :rg, :mensalidade, :status, :user_id, :curso_id)
+      params.require(:aluno).permit( :nome, :sexo, :nascimento, :endereco, :telefone, :cpf, :rg, :mensalidade, :status, :curso_id, :user_id, {:curso_ids => []}, {:disciplina_ids => []},{:turma_ids => []})
     end
+    def set_users
+        @users = User.all
+    end
+    def set_matriculas
+        @matriculas = Matricula.all
+    end
+    
 end

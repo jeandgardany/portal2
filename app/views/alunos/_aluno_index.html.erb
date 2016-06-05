@@ -1,21 +1,22 @@
+<%= flash_message %>
+<p id="notice"><%= notice %></p>
 
 <body>
   
     <ul>
       <% @usuario = current_user %>
-  <h2>Bem vindo: <%= @usuario.aluno.nome %></h2>
-      
-     <p><li>Matricula: <%= @usuario.aluno.mat %></li></p>
+    <h2>Bem vindo: <%= @usuario.aluno.nome %></h2>
+    <hr>    
+     <p><li>Matricula: <%= @usuario.aluno.mat_id %></li></p>
      <p><li>Nome: <%= @usuario.aluno.nome %></li></p>
      <p><li>E-mail: <%= @usuario.email %></li></p>
-     <p><li> Mensalidade: R$ <%= @usuario.aluno.mensalidade %>,00</li></p>
-     <p><li>Curso: <%= @usuario.aluno.curso_nome %></li></p>
+     <p><li>Mensalidade: <%= valor_formatado(@usuario.aluno.mensalidade) %></li></p>
+     <p><li>Curso: <%= @usuario.aluno.matricula.curso_nome %></li></p>
      <p><li>Endereço: <%= @usuario.aluno.endereco %></li></p>
      <p><li>Cadastrado: <%= @usuario.aluno.created_at %></li></p>
   
       <li><%= link_to 'Editar', edit_user_registration_path, :class => 'navbar-link' %> |
       <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-
     </ul>
 </body>
     

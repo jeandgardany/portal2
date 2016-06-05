@@ -5,7 +5,7 @@ class CreateFuncionarios < ActiveRecord::Migration
       t.string :nome, null: false
       t.date :nascimento, null: false
       t.string :sexo, null: false
-      t.string :cpf, null: false, unique: true
+      t.string :cpf, limite: 11, null: false, unique: true
       t.string :rg, null: false, unique: true
       t.string :endereco, null: false
       t.date :admissao, null: false

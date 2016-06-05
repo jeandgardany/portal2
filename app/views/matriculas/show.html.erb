@@ -5,8 +5,8 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:numero) %>:</strong></dt>
-  <dd><%= @matricula.numero %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:matricula_id) %>:</strong></dt>
+  <dd><%= @matricula.id %></dd>
 </dl>
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:semestre) %>:</strong></dt>
@@ -22,7 +22,15 @@
 </dl>
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:valor) %>:</strong></dt>
-  <dd>R$ <%= @matricula.valor %>,00</dd>
+  <dd><%= valor_formatado(@matricula.valor) %></dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:pago) %>:</strong></dt>
+  <dd><%= @matricula.pago %></dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @matricula.status %></dd>
 </dl>
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:aluno_id) %>:</strong></dt>
@@ -33,17 +41,22 @@
   <dd><%= @matricula.funcionario.nome %></dd>
 </dl>
 <dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:curso_id) %>:</strong></dt>
+  <dd><%= @matricula.curso_nome %></dd>
+</dl>
+<dl class="dl-horizontal">
 <dt><strong><%= "Turmas:" %></strong>&nbsp;&nbsp;&nbsp;&nbsp;</dt>
  <% @matricula.turmas.each do |turma| %>
-  <dd><li><%= "Código: #{turma.codigo} - Turno: #{turma.turno} - Semestre: #{turma.semestre} "%></li></dd>
+  <li><%= "Código: #{turma.codigo} - Turno: #{turma.turno} - Semestre: #{turma.semestre}" %></li>
   <% end %>
 </dl>
 <dl class="dl-horizontal">
 <dt><strong><%= "Disciplinas:" %></strong>&nbsp;&nbsp;&nbsp;&nbsp;</dt>
  <% @matricula.disciplinas.each do |disciplina| %>
-  <dd><li><%= "Código: #{disciplina.codigo} - Nome: #{disciplina.nome}" %></li></dd>
+  <li><%= "Código: #{disciplina.codigo} - Nome: #{disciplina.nome}" %></li>
   <% end %>
 </dl>
+<br>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               matriculas_path, :class => 'btn btn-default'  %>
@@ -52,5 +65,5 @@
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               matricula_path(@matricula),
               :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem certeza?')) },
               :class => 'btn btn-danger' %>

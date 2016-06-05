@@ -16,10 +16,16 @@ class MatriculasController < ApplicationController
   # GET /matriculas/new
   def new
     @matricula = Matricula.new
+    #@matricula.build_turmas
+    @turmas = @matricula.turmas.all
+    @disciplinas = @matricula.disciplinas.all
+    #@matricula.build_alunos_disciplinas
   end
 
   # GET /matriculas/1/edit
   def edit
+    @turmas = @matricula.turmas.all
+    @disciplinas = @matricula.disciplinas.all
   end
 
   # POST /matriculas
@@ -70,6 +76,9 @@ class MatriculasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def matricula_params
-      params.require(:matricula).permit(:numero, :semestre, :inicio, :fim, :valor, :aluno_id, :funcionario_id, {:disciplina_ids => []}, {:turma_ids => []})
+      params.require(:matricula).permit( :semestre, :inicio, :fim, :valor, :pago, :status, :aluno_id, :curso_id,
+       {:turma_ids => []}, {:disciplina_ids => []}, {curso_attributes: [:id]}, :funcionario_id, 
+       {disciplinas_attributes: [:id]}, {turmas_attributes: [:turma_id]}, {disciplinas_matriculas_attributes: [:matricula_id, :disciplina_id]}, 
+       {matriculas_turmas_attributes: [:matricula_id, :turma_id]})
     end
 end

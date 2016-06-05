@@ -24,7 +24,7 @@
         <td><%= curso.codigo %></td>
         <td><%= curso.duracao %></td>
         <td><%= curso.tipo %></td>
-        <td>R$ <%= curso.valor %>,00</td>
+        <td><%= valor_formatado(curso.valor) %></td>
         <td><%= curso.status %></td>
         <td><%=l curso.created_at %></td>
         <td>

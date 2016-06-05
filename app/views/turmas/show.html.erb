@@ -13,8 +13,8 @@
   <dt><strong><%= model_class.human_attribute_name(:capacidade) %>:</strong></dt>
   <dd><%= @turma.capacidade %></dd>
   <dt><strong><%= "Alunos:" %></strong>&nbsp;&nbsp;&nbsp;&nbsp;</dt>
-  <% @turma.alunos.each do |aluno| %>
-    <%= "#{aluno.mat} - #{aluno.nome}" %>
+  <% @turma.matriculas.each do |mat| %>
+    <%= "Matrícula: #{mat.id} - Nome: #{mat.aluno.nome}" %>
     <% end %> 
 
 </dl>

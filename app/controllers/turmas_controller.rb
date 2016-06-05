@@ -1,7 +1,7 @@
 class TurmasController < ApplicationController
   before_action :authenticate_user!
   before_action :set_turma, only: [:show, :edit, :update, :destroy]
-  before_filter :alunos_turmas, only: [:new,:create, :edit, :update]
+  before_filter :alunos_turmas, only: [:new, :edit, :update]
 
   # GET /turmas
   # GET /turmas.json

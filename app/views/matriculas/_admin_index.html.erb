@@ -5,15 +5,15 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:numero) %></th>
+      <th><%= 'Matricula' %></th>
       <th><%= model_class.human_attribute_name(:inicio) %></th>
       <th><%= model_class.human_attribute_name(:fim) %></th>
-      <th><%= model_class.human_attribute_name(:valor) %>&nbsp;&nbsp;</th>
+      <th><%= model_class.human_attribute_name(:valor) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= model_class.human_attribute_name(:aluno) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= model_class.human_attribute_name(:funcionario) %>&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= "Curso" %>&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= model_class.human_attribute_name(:created_at) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
   </thead>
@@ -22,14 +22,14 @@
     <% @matriculas.each do |matricula| %>
       <tr>
         <td><%= link_to matricula.id, matricula_path(matricula) %></td>
-        <td><%= matricula.numero %></td>
         <td><%= matricula.inicio %></td>
         <td><%= matricula.fim %></td>
-        <td>R$<%= matricula.valor %>,00</td>
+        <td><%= valor_formatado(matricula.valor) %></td>
         <td><%= matricula.aluno.nome %></td>
         <td><%= matricula.funcionario.nome %></td>
-        <td><%= matricula.aluno.curso_nome %></td>
+        <td><%= matricula.curso_nome %></td>
         <td><%=l matricula.created_at %></td>
+        <td><%= matricula.status %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_matricula_path(matricula), :class => 'btn btn-default btn-xs' %>

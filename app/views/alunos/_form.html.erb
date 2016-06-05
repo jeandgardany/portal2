@@ -1,5 +1,4 @@
 <%= form_for @aluno, :html => { :class => "form-horizontal aluno" } do |f| %>
-
   <% if @aluno.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
@@ -15,13 +14,6 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :mat, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-3">
-      <%= f.text_field :mat, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:mat) %>
-  </div>
   <div class="form-group">
     <%= f.label :nome, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
@@ -42,6 +34,13 @@
       <%= f.text_field :endereco, :class => 'form-control' %>
     </div>
     <%=f.error_span(:endereco) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :telefone, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :telefone, :limit => 11, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:telefone) %>
   </div>
   <div class="form-group">
     <%= f.label :cpf, :class => 'control-label col-lg-2' %>
@@ -79,14 +78,6 @@
     </div>
     <%=f.error_span(:user_id) %>
   </div>
-  <div class="form-group">
-    <%= f.label :curso_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-    <%=f.collection_select :curso_id, @cursos, :id, :nome, prompt: "Selecione", :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:curso_id) %>
-  </div>
-    
   <div class="form-group">
     <%= f.label :sexo, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">

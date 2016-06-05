@@ -6,28 +6,30 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
   <dd><%= @aluno.nome %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:mat) %>:</strong></dt>
-  <dd><%= @aluno.mat %></dd>
+  <dt><strong><%= 'Matricula' %>:</strong></dt>
+  <dd><%= @aluno.mat_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:nascimento) %>:</strong></dt>
   <dd><%= @aluno.nascimento %></dd>
   <dt><strong><%= model_class.human_attribute_name(:endereco) %>:</strong></dt>
   <dd><%= @aluno.endereco %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefone) %>:</strong></dt>
+  <dd><%= formata_telefone(@aluno.telefone) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:cpf) %>:</strong></dt>
-  <dd><%= @aluno.cpf %></dd>
+  <dd><%= formata_cpf(@aluno.cpf) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:rg) %>:</strong></dt>
   <dd><%= @aluno.rg %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= @aluno.status %></dd>
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
   <dd><%= @aluno.user.email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:curso_id) %>:</strong></dt>
-  <dd><%= @aluno.curso_nome %></dd>
+  <dt><strong><%= "Curso" %>:</strong></dt>
+  <dd><%= @aluno.matricula_curso %></dd>
   <dt><strong><%= model_class.human_attribute_name(:mensalidade) %>:</strong></dt>
-  <dd>R$ <%= @aluno.mensalidade %>,00</dd>
+  <dd><%= valor_formatado(@aluno.mensalidade) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:sexo) %>:</strong></dt>
   <dd><%= @aluno.sexo %></dd>
   <dt><strong>Disciplinas:</strong></dt>
-  <% @aluno.disciplinas.each do |disciplina| %>
+  <% @aluno.matricula.disciplinas.each do |disciplina| %>
   <li><%= "Código: #{disciplina.codigo} - Nome: #{disciplina.nome}" %></li>
   <% end %>
 </dl>

@@ -32,12 +32,12 @@
   <div class="form-group">
     <%= f.label :status, :class => 'control-label col-lg-2' %>
     <div class="col-lg-2">
-      <%= f.select(:status, ["Ativo", "Inativo", "Suspenso"], prompt: "Selecione") %>
+      <%= f.select(:status, ["Ativo", "Inativo", "Suspenso"]) %>
     </div>
     <%=f.error_span(:status) %>
   </div>
   <div class="form-group">
-    <%= f.label :funcionario_id, :class => 'control-label col-lg-2' %>
+    <%= f.label :professor, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome, prompt: true, :class => 'form-control' %>
     </div>

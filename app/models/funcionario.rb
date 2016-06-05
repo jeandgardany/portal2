@@ -8,4 +8,13 @@ class Funcionario < ActiveRecord::Base
   validates :nome, :matricula, :nascimento, :endereco, :admissao, :status, :sexo, :cpf, :rg, presence: true 
   validates :matricula, :cpf, :rg, uniqueness: true
   
+
+def curso_nome
+    if self.curso.blank?
+      "Sem Cadastro"
+    else
+      self.curso.nome
+    end
+end
+  
 end
