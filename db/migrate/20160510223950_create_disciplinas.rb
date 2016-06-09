@@ -5,7 +5,7 @@ class CreateDisciplinas < ActiveRecord::Migration
       t.string :nome, null: false
       t.string :status, null: false
       t.references :funcionario, index: true, foreign_key: true
-      #t.references :matricula, index: true, foreign_key: true
+      t.references :curso, index: true, foreign_key: true
       
       t.timestamps null: false
     end

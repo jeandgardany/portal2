@@ -6,9 +6,8 @@
 <table class="table table-striped" >
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:nome) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= "Matricula" %></th>
+      <th><%= model_class.human_attribute_name(:nome) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= "Nascimento" %></th>
       <th><%= "Endereço" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= "Telefone" %></th>
@@ -17,37 +16,35 @@
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= "Usuário" %></th>
       <th><%= model_class.human_attribute_name(:sexo) %></th>
-      <th><%= model_class.human_attribute_name(:mensalidade) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     <% @alunos.each do |aluno| %>
       <tr>
-        <td><%= link_to aluno.id, aluno_path(aluno) %></td>
+        <td><%= aluno.matricula %></td><!--O metodo curso_nome esta no models aluno, serve pra corrigir erro de nada cadastrado.-->
         <td><%= aluno.nome %></td>
-        <td><%= aluno.mat_id %></td><!--O metodo curso_nome esta no models aluno, serve pra corrigir erro de nada cadastrado.-->
         <td><%= aluno.nascimento %></td>
         <td><%= aluno.endereco %></td>
         <td><%= formata_telefone(aluno.telefone) %></td>
         <td><%= formata_cpf(aluno.cpf) %></td>
-        <td><%= aluno.rg %></td>
+        <td><%= formata_rg(aluno.rg) %></td>
         <td><%= aluno.status %></td>
         <td><%= aluno.user.email %></td>
         <td><%= aluno.sexo %></td>
-        <td><%= valor_formatado(aluno.mensalidade) %></td><!-- Formata numero para valor, esta no help -->
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_aluno_path(aluno), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       aluno_path(aluno),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'você tem certeza?')) },
                       :class => 'btn btn-xs btn-danger' %>
           <%= link_to 'Mostrar', aluno, :class => 'btn btn-default btn-xs'%>
         </td>
       </tr>
     <% end %>
+    <%= paginate @alunos %>
   </tbody>
 </table>
 

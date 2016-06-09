@@ -3,7 +3,7 @@
     <ul>
       <% @usuario = current_user %>
   <h2>Bem vindo: <%= @usuario.aluno.nome %></h2>
-   <hr>   
+   <hr>  
   <dt><strong>Curso Matriculado:</strong></dt>
   <li>Código: <%= @usuario.aluno_matricula.curso_codigo %></li>
   <li>Nome: <%= @usuario.aluno.matricula.curso_nome %></li>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @solicitacao_matricula.valor %>
+</p>
+
+<p>
+  <strong>Ano:</strong>
+  <%= @solicitacao_matricula.ano %>
+</p>
+
+<p>
+  <strong>Semestre:</strong>
+  <%= @solicitacao_matricula.semestre %>
+</p>
+
+<p>
+  <strong>Aluno:</strong>
+  <%= @solicitacao_matricula.aluno.nome %>
+</p>
+<p><strong><%= "Matrículas:" %></strong>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+ <% @solicitacao_matricula.matriculas.each do |mat| %>
+  <li><%= "Id: #{mat.id} - Semestre: #{mat.semestre} " %></li>
+  <% end %>
+</dl>
+
+<%= link_to 'Edit', edit_solicitacao_matricula_path(@solicitacao_matricula) %> |
+<%= link_to 'Back', solicitacao_matriculas_path %>

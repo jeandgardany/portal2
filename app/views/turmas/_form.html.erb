@@ -45,7 +45,27 @@
     </div>
     <%=f.error_span(:capacidade) %>
   </div>
-   
+  <div class="form-group">
+    <%= f.label :valor, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.number_field :valor, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:valor) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :disciplina_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.collection_select :disciplina_id, Disciplina.all, :id, :nome, prompt: true, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:disciplina_id) %>
+  </div>
+   <div class="form-group">
+    <%= f.label :funcionario_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-2">
+      <%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome, prompt: true, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:funcionario_id) %>
+  </div>
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>

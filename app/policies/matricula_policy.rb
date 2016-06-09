@@ -1,6 +1,6 @@
 class MatriculaPolicy < ApplicationPolicy
   def index?
-  	user.administrador?
+  	user.administrador? | user.aluno?
   end
   def show?
   	user.administrador?

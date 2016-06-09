@@ -1,11 +1,13 @@
 class Aluno < ActiveRecord::Base
   belongs_to :user
-  has_one :matricula
+  has_many :matriculas
+  has_one :solicitacao_matricula
+  has_many :mensalidades
   
-  validates :nome, :nascimento, :endereco, :telefone, :rg, :status, :sexo, presence: {message: 'não pode ficar em branco'}
-  validates :cpf, uniqueness: {message: 'CPF já existe, coloque outro CPF'}
-  validates :rg, uniqueness: {message: 'RG já existe, coloque outro RG'}
-  #validates :user_id, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+  validates :matricula, :nome, :nascimento, :endereco, :telefone, :rg, :status, :sexo, presence: {message: 'não pode ficar em branco'}
+  #validates :cpf, uniqueness: {message: 'CPF já existe, coloque outro CPF'}
+  #validates :rg, uniqueness: {message: 'RG já existe, coloque outro RG'}
+  validates :matricula, :cpf, :rg, uniqueness: {message: 'já existe, coloque outro'}
   validates_presence_of :telefone, :message => " - Deve ser preenchido"
   validates_length_of :telefone, maximum: 11, message: 'deve ter 11 caracteres, Ex. só números: 859xxxxxxxx'
   validates_length_of :cpf, maximum: 11, message: 'deve ter 11 caracteres, sem ponto ou traço'
@@ -55,11 +57,11 @@ def matricula_disciplinas
       self.matricula.disciplinas
     end
 end
-  def mat_id
+  def aluno_matricula
     if self.matricula.blank?
       "Sem Cadastro"
     else
-      self.matricula.id
+      self.aluno.matricula
     end
   end
    

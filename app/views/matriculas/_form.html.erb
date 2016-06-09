@@ -24,12 +24,20 @@
     <%= f.date_select :fim %>
   </div>
   <div class="field">
-    <%= f.label :valor %><br>
-    <%= f.text_field :valor %>
+    <%= f.label :ap1 %><br>
+    <%= f.text_field :ap1, :class => 'text_field', :step => '0.01', precision: 5, scale: 2 %>
   </div>
   <div class="field">
-    <%= f.label :pago %><br>
-    <%= f.check_box :pago %>
+    <%= f.label :ap2 %><br>
+    <%= f.text_field :ap2, :precision => 5, :scale => 2, format: "%u %n" %>
+  </div>
+  <div class="field">
+    <%= f.label :ap3 %><br>
+    <%= f.text_field :ap3, :precision => 5, :scale => 2, format: "%u %n" %>
+  </div>
+  <div class="field">
+    <%= f.label :faltas %><br>
+    <%= f.number_field :faltas %>
   </div>
   <div class="field">
     <%= f.label :aluno_id %><br>
@@ -40,22 +48,10 @@
     <%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome, prompt: true %>
   </div>
   <div class="field">
-    <%= f.label :curso_id %><br>
-    <%= f.collection_select :curso_id, Curso.all, :id, :nome, prompt: true %>
+    <%= f.label :turma_id %><br>
+    <%= f.collection_select :turma_id, Curso.all, :id, :codigo, prompt: true %>
   </div>
   <%#= f.collection_check_boxes(:turma_ids, Turma.all, :id, :codigo) %>
-  <div class="field">
-    <%= f.label :turma_ids %><br>
-    <%= f.collection_select :turma_ids, Turma.all, :id, :codigo,{}, {:multiple => true, class: 'select2'} %>
-  </div>
-   <div class="field">
-    <%= f.label :disciplina_ids %><br>
-    <%= f.collection_select :disciplina_ids, Disciplina.all, :id, :nome,{}, {:multiple => true, class: 'select2'} %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.select(:status, ["Pendente", "Ativo", "Inativo"] ) %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

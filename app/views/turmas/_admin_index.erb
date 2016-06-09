@@ -10,6 +10,9 @@
       <th><%= model_class.human_attribute_name(:turno) %></th>
       <th><%= model_class.human_attribute_name(:semestre) %></th>
       <th><%= model_class.human_attribute_name(:capacidade) %></th>
+      <th><%= model_class.human_attribute_name(:valor) %></th>
+      <th><%= model_class.human_attribute_name(:disciplina_id) %></th>
+      <th><%= "Professor(a)" %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -21,6 +24,9 @@
         <td><%= turma.turno %></td>
         <td><%= turma.semestre %></td>
         <td><%= turma.capacidade %></td>
+        <td><%= valor_formatado(turma.valor) %></td>
+        <td><%= turma.disciplina_nome %></td>
+        <td><%= turma.funcionario_nome %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_turma_path(turma), :class => 'btn btn-default btn-xs' %>

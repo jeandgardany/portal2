@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mensalidades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pago &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Mes &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Ano &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Aluno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Solicitacao matricula &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mensalidades.each do |mensalidade| %>
+      <tr>
+        <td><%= mensalidade.pago %></td>
+        <td><%= mensalidade.mes %></td>
+        <td><%= mensalidade.ano %></td>
+        <td><%= mensalidade.aluno.nome %></td>
+        <td><%= mensalidade.solicitacao_matricula.id %></td>
+        <td>
+        <%= link_to 'Mostrar', mensalidade %>
+        <%= link_to 'Editar', edit_mensalidade_path(mensalidade) %>
+        <%= link_to 'Apagar', mensalidade, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Mensalidade', new_mensalidade_path %>

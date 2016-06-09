@@ -1,0 +1,45 @@
+    <div class="container">
+     <table class="topo" style="height: 20%" cellspacing="0" cellpadding="0" width="780"
+        align="left" border="0">
+                <!-- ### Menu do Topo ### //-->       
+                        <td style="width: 100%" align="center">
+                            <table >
+                                <tr>
+                                    <td style="width: 10%" align="center">
+                                      <%= link_to root_path do %>
+                                      <%= image_tag "/assets/suitcase.png", id: "image-icone" %>
+                                      <% end %>
+                                      <%= link_to alunos_path do %>
+                                      <%= image_tag "/assets/team.png", id: "image-icone" %>
+                                      <% end %>
+                                      <%= link_to turmas_path do %>
+                                      <%= image_tag "/assets/mortarboard.png", id: "image-icone" %>
+                                      <% end %>
+                                      <%= link_to disciplinas_path do %>
+                                      <%= image_tag "/assets/compass.png", id: "image-icone" %>
+                                      <% end %>
+                                      <%= link_to matriculas_path do %>
+                                      <%= image_tag "/assets/documentation.png", id: "image-icone" %>
+                                      <% end %>
+                                      <%= link_to matriculas_path do %>
+                                      <%= image_tag "/assets/medal.png", id: "image-icone" %>
+                                      <% end %>
+                                      <%= link_to disciplinas_path do %>
+                                      <%= image_tag "/assets/calendar.png", id: "image-icone" %>
+                                      <% end %>
+                                      <%= link_to mensalidades_path do %>
+                                      <%= image_tag "/assets/money-bag.png", id: "image-icone" %>
+                                      <% end %>
+                                      <%= link_to disciplinas_path do %>
+                                      <%= image_tag "/assets/chat.png", id: "image-icone" %>
+                                      <% end %>
+                                      <%= link_to image_tag("/assets/cogwheel.png", :alt => "Editar", id: "image-icone") + "", {:controller => 'alunos', :action => 'index'}%>
+                                    
+                                     </div>                        
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+               <!-- ### Menu do Topo - Fim ### //-->
+      </table>
+   </div>

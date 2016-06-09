@@ -13,7 +13,7 @@
   <dt><strong><%= model_class.human_attribute_name(:tipo) %>:</strong></dt>
   <dd><%= @curso.tipo %></dd>
   <dt><strong><%= model_class.human_attribute_name(:valor) %>:</strong></dt>
-  <dd>R$ <%= @curso.valor %>,00</dd>
+  <dd><%= valor_formatado(@curso.valor) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= @curso.status %></dd>  
 </dl>

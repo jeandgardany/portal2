@@ -21,16 +21,20 @@
   <dd><%= @matricula.fim %></dd>
 </dl>
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:valor) %>:</strong></dt>
-  <dd><%= valor_formatado(@matricula.valor) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ap1) %>:</strong></dt>
+  <dd><%= @matricula.ap1 %></dd>
 </dl>
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:pago) %>:</strong></dt>
-  <dd><%= @matricula.pago %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ap2) %>:</strong></dt>
+  <dd><%= @matricula.ap2 %></dd>
 </dl>
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @matricula.status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ap3) %>:</strong></dt>
+  <dd><%= @matricula.ap3 %></dd>
+</dl>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:faltas) %>:</strong></dt>
+  <dd><%= @matricula.faltas %></dd>
 </dl>
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:aluno_id) %>:</strong></dt>
@@ -39,23 +43,9 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:funcionario_id) %>:</strong></dt>
   <dd><%= @matricula.funcionario.nome %></dd>
-</dl>
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:curso_id) %>:</strong></dt>
-  <dd><%= @matricula.curso_nome %></dd>
-</dl>
-<dl class="dl-horizontal">
-<dt><strong><%= "Turmas:" %></strong>&nbsp;&nbsp;&nbsp;&nbsp;</dt>
- <% @matricula.turmas.each do |turma| %>
-  <li><%= "Código: #{turma.codigo} - Turno: #{turma.turno} - Semestre: #{turma.semestre}" %></li>
-  <% end %>
-</dl>
-<dl class="dl-horizontal">
-<dt><strong><%= "Disciplinas:" %></strong>&nbsp;&nbsp;&nbsp;&nbsp;</dt>
- <% @matricula.disciplinas.each do |disciplina| %>
-  <li><%= "Código: #{disciplina.codigo} - Nome: #{disciplina.nome}" %></li>
-  <% end %>
-</dl>
+</dl><dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:turma) %>:</strong></dt>
+  <dd><%= @matricula.turma_codigo %></dd>
 <br>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

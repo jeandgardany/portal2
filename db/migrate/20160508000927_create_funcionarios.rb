@@ -8,8 +8,9 @@ class CreateFuncionarios < ActiveRecord::Migration
       t.string :cpf, limite: 11, null: false, unique: true
       t.string :rg, null: false, unique: true
       t.string :endereco, null: false
+      t.string :telefone, limit: 11, null: false
       t.date :admissao, null: false
-      t.decimal :salario
+      t.decimal :salario, precision: 10, scale: 2, null: false
       t.string :carga_horaria
       t.string :turno
       t.string :status, null: false, default: "Ativo"

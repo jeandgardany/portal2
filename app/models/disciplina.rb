@@ -1,8 +1,9 @@
 class Disciplina < ActiveRecord::Base
   belongs_to :funcionario, :touch => true
-  belongs_to :turma
-  has_and_belongs_to_many :matriculas, :join_table => :disciplinas_matriculas
-  accepts_nested_attributes_for :turma, :matriculas
+  has_many :turmas
+  belongs_to :curso
+  has_many :matriculas
+  accepts_nested_attributes_for :turmas, :matriculas
 
   
   validates :nome, :codigo, presence: {message: 'não pode ficar em branco'}
@@ -13,13 +14,6 @@ def curso_nome
       "Sem Cadastro"
     else
       self.curso.nome
-    end
-  end
-  def turma_codigo
-    if self.turma.blank?
-      "Sem Cadastro"
-    else
-      self.turma.codigo
     end
   end
   def funcionario_nome

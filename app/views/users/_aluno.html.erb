@@ -5,10 +5,10 @@
       <% @usuario = current_user %>
   <h2>Bem vindo: <%= @usuario.aluno_nome %></h2> <!-- metod aluno_nome esta no model user, usado pra nao da erro quando não tem nenhuma luno cadastrado -->
 <hr>
-     <p><li>Matrícula: <%= @usuario.aluno.mat_id %></li></p>
+     <p><li>Matrícula: <%= @usuario.aluno.matricula %></li></p>
      <p><li>Nome: <%= @usuario.aluno_nome %></li></p>
      <p><li>E-mail: <%= @usuario.email %></li></p>
-     <p><li>Mensalidade: R$ <%= @usuario.aluno_mensalidade %>,00</li></p>
+     <p><li>Mensalidade: <%= valor_formatado(@usuario.aluno.solicitacao_matricula.valor) %></li></p>
      <p><li>Endereço: <%= @usuario.aluno_endereco %></li></p>
      <p><li>Cadastrado: <%= @usuario.aluno_created_at %></li></p>
 

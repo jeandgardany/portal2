@@ -17,7 +17,7 @@
   <div class="form-group">
     <%= f.label :matricula, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :matricula, :class => 'form-control' %>
+      <%= f.text_field :matricula, limit: 11, default: "160000", :class => 'form-control' %>
     </div>
     <%=f.error_span(:matricula) %>
   </div>
@@ -64,6 +64,13 @@
       <%= f.text_field :endereco, :class => 'form-control' %>
     </div>
     <%=f.error_span(:endereco) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :telefone, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :telefone, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:telefone) %>
   </div>
   <div class="form-group">
     <%= f.label :admissao, :class => 'control-label col-lg-2' %>

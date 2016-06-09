@@ -1,0 +1,37 @@
+<%= form_for(@solicitacao_matricula) do |f| %>
+  <% if @solicitacao_matricula.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@solicitacao_matricula.errors.count, "error") %> prohibited this solicitacao_matricula from being saved:</h2>
+
+      <ul>
+      <% @solicitacao_matricula.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :valor %><br>
+    <%= f.text_field :valor %>
+  </div>
+  <div class="field">
+    <%= f.label :ano %><br>
+    <%= f.number_field :ano %>
+  </div>
+  <div class="field">
+    <%= f.label :semestre %><br>
+    <%= f.number_field :semestre %>
+  </div>
+  <div class="field">
+    <%= f.label :aluno_id %><br>
+    <%= f.collection_select :aluno_id, Aluno.all, :id, :nome, prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :matricula_ids %><br>
+    <%= f.collection_select :matricula_ids, Matricula.all, :id, :id,{}, {:multiple => true, class: 'select2'} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

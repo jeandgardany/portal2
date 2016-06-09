@@ -12,6 +12,12 @@
   <dd><%= @turma.semestre %></dd>
   <dt><strong><%= model_class.human_attribute_name(:capacidade) %>:</strong></dt>
   <dd><%= @turma.capacidade %></dd>
+  <dt><strong><%= "Professor(a)" %>:</strong></dt>
+  <dd><%= @turma.funcionario_nome %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:valor) %>:</strong></dt>
+  <dd><%= valor_formatado(@turma.valor) %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:disciplina) %>:</strong></dt>
+  <dd><%= @turma.disciplina_nome %></dd>
   <dt><strong><%= "Alunos:" %></strong>&nbsp;&nbsp;&nbsp;&nbsp;</dt>
   <% @turma.matriculas.each do |mat| %>
     <%= "Matrícula: #{mat.id} - Nome: #{mat.aluno.nome}" %>

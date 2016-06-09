@@ -7,7 +7,7 @@
   <dt><strong><%= model_class.human_attribute_name(:nome) %>:</strong></dt>
   <dd><%= @aluno.nome %></dd>
   <dt><strong><%= 'Matricula' %>:</strong></dt>
-  <dd><%= @aluno.mat_id %></dd>
+  <dd><%= @aluno.matricula %></dd>
   <dt><strong><%= model_class.human_attribute_name(:nascimento) %>:</strong></dt>
   <dd><%= @aluno.nascimento %></dd>
   <dt><strong><%= model_class.human_attribute_name(:endereco) %>:</strong></dt>
@@ -23,15 +23,11 @@
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
   <dd><%= @aluno.user.email %></dd>
   <dt><strong><%= "Curso" %>:</strong></dt>
-  <dd><%= @aluno.matricula_curso %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:mensalidade) %>:</strong></dt>
-  <dd><%= valor_formatado(@aluno.mensalidade) %></dd>
+  <dd><% @aluno.matriculas do |mat| %></dd>
+  <dd><%= mat.disciplina.curso.nome %></dd>
+  <% end %>
   <dt><strong><%= model_class.human_attribute_name(:sexo) %>:</strong></dt>
   <dd><%= @aluno.sexo %></dd>
-  <dt><strong>Disciplinas:</strong></dt>
-  <% @aluno.matricula.disciplinas.each do |disciplina| %>
-  <li><%= "Código: #{disciplina.codigo} - Nome: #{disciplina.nome}" %></li>
-  <% end %>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

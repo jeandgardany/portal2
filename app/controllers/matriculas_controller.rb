@@ -5,7 +5,7 @@ class MatriculasController < ApplicationController
   # GET /matriculas
   # GET /matriculas.json
   def index
-    @matriculas = Matricula.all
+    @matriculas = Matricula.all.page(params['page']).per(5)
   end
 
   # GET /matriculas/1
@@ -17,15 +17,15 @@ class MatriculasController < ApplicationController
   def new
     @matricula = Matricula.new
     #@matricula.build_turmas
-    @turmas = @matricula.turmas.all
-    @disciplinas = @matricula.disciplinas.all
+    #@turmas = @matricula.turmas.all
+    #@disciplinas = @matricula.turma.disciplinas.all
     #@matricula.build_alunos_disciplinas
   end
 
   # GET /matriculas/1/edit
   def edit
-    @turmas = @matricula.turmas.all
-    @disciplinas = @matricula.disciplinas.all
+    #@turmas = @matricula.turmas.all
+    #@disciplinas = @matricula.disciplinas.all
   end
 
   # POST /matriculas
@@ -76,9 +76,9 @@ class MatriculasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def matricula_params
-      params.require(:matricula).permit( :semestre, :inicio, :fim, :valor, :pago, :status, :aluno_id, :curso_id,
-       {:turma_ids => []}, {:disciplina_ids => []}, {curso_attributes: [:id]}, :funcionario_id, 
-       {disciplinas_attributes: [:id]}, {turmas_attributes: [:turma_id]}, {disciplinas_matriculas_attributes: [:matricula_id, :disciplina_id]}, 
-       {matriculas_turmas_attributes: [:matricula_id, :turma_id]})
+      params.require(:matricula).permit( :semestre, :inicio, :fim, :ap1, :ap2, :ap3, :faltas, :aluno_id, :turma_id, :funcionario_id )
     end
 end
+#{:turma_ids => []}, {:disciplina_ids => []}, {curso_attributes: [:id]}, :funcionario_id, 
+ #      {disciplinas_attributes: [:id]}, {turmas_attributes: [:turma_id]}, {disciplinas_matriculas_attributes: [:matricula_id, :disciplina_id]}, 
+  #     {matriculas_turmas_attributes: [:matricula_id, :turma_id]}

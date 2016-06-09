@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Solicitações de Matriculas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Valor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Ano &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Semestre &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Mat. Aluno &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Aluno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Matricula &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @solicitacao_matriculas.each do |solicitacao_matricula| %>
+      <tr>
+        <td><%= valor_formatado(solicitacao_matricula.valor) %></td>
+        <td><%= solicitacao_matricula.ano %></td>
+        <td><%= solicitacao_matricula.semestre %></td>
+        <td><%= solicitacao_matricula.aluno.matricula %></td>
+        <td><%= solicitacao_matricula.aluno.nome %></td>
+        <td><%= solicitacao_matricula.matricula_ids %></td>
+        <td>
+        <%= link_to 'Mostrar', solicitacao_matricula %>
+        <%= link_to 'Editar', edit_solicitacao_matricula_path(solicitacao_matricula) %>
+        <%= link_to 'Apagar', solicitacao_matricula, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Solicitação de matricula', new_solicitacao_matricula_path %>

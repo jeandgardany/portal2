@@ -1,6 +1,8 @@
 class Turma < ActiveRecord::Base
-  has_one :disciplina
-  has_and_belongs_to_many :matriculas, :join_table => :matriculas_turmas
+  belongs_to :disciplina
+  belongs_to :funcionario
+  has_many :matriculas
+  accepts_nested_attributes_for :disciplina, :funcionario, :matriculas
   
   validates :codigo, :turno, :semestre, :capacidade, presence: true 
   validates :codigo, uniqueness: true
@@ -10,6 +12,13 @@ class Turma < ActiveRecord::Base
       "Sem Cadastro"
     else
       self.funcionario.nome
+    end
+  end
+  def disciplina_nome
+    if self.disciplina.blank?
+      "Sem Cadastro"
+    else
+      self.disciplina.nome
     end
   end
 

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pago:</strong>
+  <%= @mensalidade.pago %>
+</p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @mensalidade.mes %>
+</p>
+
+<p>
+  <strong>Ano:</strong>
+  <%= @mensalidade.ano %>
+</p>
+
+<p>
+  <strong>Aluno:</strong>
+  <%= @mensalidade.aluno.nome %>
+</p>
+
+<p>
+  <strong>Solicitacao matricula:</strong>
+  <%= @mensalidade.solicitacao_matricula.id %>
+</p>
+
+<%= link_to 'Edit', edit_mensalidade_path(@mensalidade) %> |
+<%= link_to 'Back', mensalidades_path %>

@@ -7,7 +7,7 @@ class AlunosController < ApplicationController
   # GET /alunos
   # GET /alunos.json
   def index
-    @alunos = Aluno.all
+    @alunos = Aluno.all.page(params['page']).per(5)
   end
 
   # GET /alunos/1
@@ -75,7 +75,7 @@ class AlunosController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def aluno_params
-      params.require(:aluno).permit( :nome, :sexo, :nascimento, :endereco, :telefone, :cpf, :rg, :mensalidade, :status, :curso_id, :user_id, {:curso_ids => []}, {:disciplina_ids => []},{:turma_ids => []})
+      params.require(:aluno).permit( :matricula, :nome, :sexo, :nascimento, :endereco, :telefone, :cpf, :rg, :status, :user_id)
     end
     def set_users
         @users = User.all

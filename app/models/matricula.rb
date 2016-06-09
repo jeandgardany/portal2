@@ -1,26 +1,25 @@
 class Matricula < ActiveRecord::Base
   belongs_to :aluno
   belongs_to :funcionario
-  belongs_to :curso
-  has_and_belongs_to_many :disciplinas, :join_table => :disciplinas_matriculas
-  has_and_belongs_to_many :turmas, :join_table => :matriculas_turmas
+  belongs_to :turma
+  belongs_to :solicitacao_matricula
   
-  accepts_nested_attributes_for :disciplinas, :turmas, :curso, :funcionario, :aluno
+  accepts_nested_attributes_for :turma, :funcionario, :aluno, :solicitacao_matricula
 
-  validates :inicio, :semestre, :inicio, :fim, :valor, :aluno_id, :funcionario_id, presence: true
+  validates :semestre, :inicio, :fim, :turma_id, :aluno_id, :funcionario_id, presence: true
 
-def curso_nome
-    if self.curso.blank?
+def turma_nome
+    if self.turma.blank?
       "Sem Cadastro"
     else
-      self.curso.nome
+      self.turma.nome
     end
   end
-  def curso_codigo
-    if self.curso.blank?
+  def turma_codigo
+    if self.turma.blank?
       "Sem Cadastro"
     else
-      self.curso.codigo
+      self.turma.codigo
     end
 end
 def mat_id

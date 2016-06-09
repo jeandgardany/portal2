@@ -10,12 +10,13 @@
       <th><%= "Matrícula" %></th>
       <th><%= model_class.human_attribute_name(:nascimento) %></th>
       <th><%= "Endereço" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= "Telefone" %></th>
       <th><%= "Admissão" %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= "Usuário" %></th>
       <th><%= "Cargo" %></th>
       <th><%= "Carga Horária" %></th>
-      <th><%= "Turno" %></th>
+      <th><%= "Turno" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
   </thead>
@@ -27,6 +28,7 @@
         <td><%= funcionario.matricula %></td>
         <td><%= funcionario.nascimento %></td>
         <td><%= funcionario.endereco %></td>
+        <td><%= funcionario.telefone %></td>
         <td><%= funcionario.admissao %></td>
         <td><%= funcionario.status %></td>
         <td><%= funcionario.user.email %></td>

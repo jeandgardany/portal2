@@ -10,6 +10,7 @@
       <th><%= "Código" %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
       <th><%= "Funcionário" %></th>
+      <th><%= "Curso" %></th>
       <th><%= "Cadastrado em" %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
@@ -22,6 +23,7 @@
         <td><%= disciplina.codigo %></td>
         <td><%= disciplina.status %></td>
         <td><%= disciplina.funcionario_nome %></td>
+        <td><%= disciplina.curso_nome %></td>
         <td><%=l disciplina.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

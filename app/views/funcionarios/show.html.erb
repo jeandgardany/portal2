@@ -14,6 +14,8 @@
   <dd><%= @funcionario.endereco %></dd>
   <dt><strong><%= model_class.human_attribute_name(:admissao) %>:</strong></dt>
   <dd><%= @funcionario.admissao %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:salario) %>:</strong></dt>
+  <dd><%= valor_formatado(@funcionario.salario) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= @funcionario.status %></dd>
   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
@@ -23,9 +25,9 @@
   <dt><strong><%= model_class.human_attribute_name(:sexo) %>:</strong></dt>
   <dd><%= @funcionario.sexo %></dd>
   <dt><strong><%= model_class.human_attribute_name(:cpf) %>:</strong></dt>
-  <dd><%= @funcionario.cpf %></dd>
+  <dd><%= formata_cpf(@funcionario.cpf) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:rg) %>:</strong></dt>
-  <dd><%= @funcionario.rg %></dd>
+  <dd><%= formata_rg(@funcionario.rg) %></dd>
   <dt><strong><%= model_class.human_attribute_name(:carga_horaria) %>:</strong></dt>
   <dd><%= @funcionario.carga_horaria %></dd>
   <dt><strong><%= model_class.human_attribute_name(:turno) %>:</strong></dt>

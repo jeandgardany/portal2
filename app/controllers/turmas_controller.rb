@@ -12,6 +12,8 @@ class TurmasController < ApplicationController
   # GET /turmas/1
   # GET /turmas/1.json
   def show
+    @disciplinas = Disciplina.all
+    @disciplina = Disciplina.find(params[:id])
   end
 
   # GET /turmas/new
@@ -71,7 +73,7 @@ class TurmasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def turma_params
-      params.require(:turma).permit( :codigo, :turno, :semestre, :capacidade) #{:aluno_ids => []} colocar lista de alunos
+      params.require(:turma).permit( :codigo, :turno, :semestre, :capacidade, :valor, :disciplina_id, :funcionario_id) #{:aluno_ids => []} colocar lista de alunos
     end
     protected
   def alunos_turmas

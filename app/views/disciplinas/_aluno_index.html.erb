@@ -6,8 +6,8 @@
   <h2>Bem vindo: <%= @usuario.aluno.nome %></h2>
   <hr>
   <dt><strong>Suas Disciplinas Matriculadas:</strong></dt>
-  <% @usuario.aluno.matricula.disciplinas.each do |disciplina| %>
-  <li><%= "Código: #{disciplina.codigo} - Nome: #{disciplina.nome}" %></li>
+  <% @usuario.aluno.matriculas.each do |mat| %>
+  <li><%= "Código: #{mat.turma.disciplina.codigo} - Nome: #{mat.turma.disciplina.nome}" %></li>
   <% end %>
   
       <li><%= link_to 'Editar', edit_user_registration_path, :class => 'navbar-link' %> |

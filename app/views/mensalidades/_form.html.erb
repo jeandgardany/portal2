@@ -1,0 +1,37 @@
+<%= form_for(@mensalidade) do |f| %>
+  <% if @mensalidade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mensalidade.errors.count, "error") %> prohibited this mensalidade from being saved:</h2>
+
+      <ul>
+      <% @mensalidade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pago %><br>
+    <%= f.check_box :pago %>
+  </div>
+  <div class="field">
+    <%= f.label :mes %><br>
+    <%= f.number_field :mes %>
+  </div>
+  <div class="field">
+    <%= f.label :ano %><br>
+    <%= f.number_field :ano %>
+  </div>
+  <div class="field">
+    <%= f.label :aluno_id %><br>
+    <%= f.collection_select :aluno_id, Aluno.all, :id, :nome, prompt: true %>
+  </div>
+  <div class="field">
+    <%= f.label :solicitacao_matricula_id %><br>
+    <%= f.collection_select :solicitacao_matricula_id, SolicitacaoMatricula.all, :id, :id, prompt: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

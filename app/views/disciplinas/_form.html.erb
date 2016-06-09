@@ -43,7 +43,13 @@
     </div>
     <%=f.error_span(:funcionario_id) %>
   </div>
-      
+      <div class="form-group">
+    <%= f.label :curso_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_select :curso_id, Curso.all, :id, :nome, prompt: true, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:curso_id) %>
+  </div>
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
