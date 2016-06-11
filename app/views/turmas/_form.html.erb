@@ -60,7 +60,7 @@
     <%=f.error_span(:disciplina_id) %>
   </div>
    <div class="form-group">
-    <%= f.label :funcionario_id, :class => 'control-label col-lg-2' %>
+    <%= f.label :funcionario_id,"Professor(a)", :class => 'control-label col-lg-2' %>
     <div class="col-lg-2">
       <%= f.collection_select :funcionario_id, Funcionario.all, :id, :nome, prompt: true, :class => 'form-control' %>
     </div>
