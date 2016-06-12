@@ -20,7 +20,7 @@
   <dd><%= @turma.disciplina_nome %></dd>
   <dt><strong><%= "Alunos:" %></strong>&nbsp;&nbsp;&nbsp;&nbsp;</dt>
   <% @turma.matriculas.each do |mat| %>
-    <%= "Matrícula: #{mat.id} - Nome: #{mat.aluno.nome}" %>
+    <p><dd><%= "Matrícula: #{mat.id} - Nome: #{mat.aluno.nome}" %></dd></p>
     <% end %> 
 
 </dl>

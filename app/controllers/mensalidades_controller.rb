@@ -5,6 +5,9 @@ class MensalidadesController < ApplicationController
   # GET /mensalidades.json
   def index
     @mensalidades = Mensalidade.all
+    #@solicitacao_matriculas = SolicitacaoMatricula.all
+    #solicitacao_matricula = @solicitacao_matriculas
+    #@mensalidades.solicitacao_matricula = Mensalidade.solicitacao_matricula.all
   end
 
   # GET /mensalidades/1

@@ -3,4 +3,5 @@ class SolicitacaoMatricula < ActiveRecord::Base
   has_many :matriculas
 
   accepts_nested_attributes_for :aluno, :matriculas
+  
 end

@@ -21,9 +21,14 @@
 </p>
 <p><strong><%= "Matrículas:" %></strong>&nbsp;&nbsp;&nbsp;&nbsp;</p>
  <% @solicitacao_matricula.matriculas.each do |mat| %>
-  <li><%= "Id: #{mat.id} - Semestre: #{mat.semestre} " %></li>
+  <li><%= "Turma: #{mat.turma.codigo} - Semestre: #{mat.semestre} - Disciplina: #{mat.turma.disciplina.nome}" %></li>
+  <%= valor_formatado(mat.turma.valor) %>
   <% end %>
-</dl>
+  <p>
+  <strong>Mensalidade:</strong>
+  <%= valor_formatado(@solicitacao_matricula.matriculas.inject(0){|sum, matricula| sum + matricula.turma.valor}) %>
+  </p>
+  <br><br>
 
 <%= link_to 'Edit', edit_solicitacao_matricula_path(@solicitacao_matricula) %> |
 <%= link_to 'Back', solicitacao_matriculas_path %>

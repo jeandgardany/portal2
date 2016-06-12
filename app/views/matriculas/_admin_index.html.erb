@@ -22,7 +22,7 @@
   </thead>
 
   <tbody>
-    <% @matriculas.each do |matricula| %>
+    <% @matriculas.order('aluno_id').each do |matricula| %>
       <tr>
         <td><%= link_to matricula.id, matricula_path(matricula) %></td>
         <td><%= matricula.semestre %></td>

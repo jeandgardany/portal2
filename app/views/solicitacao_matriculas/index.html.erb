@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Solicitações de Matriculas</h1>
+<%- model_class = Funcao -%>
+<div class="page-header">
+  <h1><%= "Solicitações de Matriculas" %></h1>
+</div>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Valor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
@@ -26,9 +29,14 @@
         <td><%= solicitacao_matricula.aluno.nome %></td>
         <td><%= solicitacao_matricula.matricula_ids %></td>
         <td>
-        <%= link_to 'Mostrar', solicitacao_matricula %>
-        <%= link_to 'Editar', edit_solicitacao_matricula_path(solicitacao_matricula) %>
-        <%= link_to 'Apagar', solicitacao_matricula, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_solicitacao_matricula_path(solicitacao_matricula), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      solicitacao_matricula_path(solicitacao_matricula),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem certeza?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+          <%= link_to 'Mostrar', solicitacao_matricula, :class => 'btn btn-default btn-xs'%>
         </td>
       </tr>
     <% end %>

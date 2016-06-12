@@ -31,6 +31,7 @@
     <%= f.label :solicitacao_matricula_id %><br>
     <%= f.collection_select :solicitacao_matricula_id, SolicitacaoMatricula.all, :id, :id, prompt: true %>
   </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

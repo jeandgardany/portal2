@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :models
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy'
   end
+  get 'simple_calendar', to: "simple_calendar/index"
   get 'controle_usuarios/index'
   resources :alunos
   resources :turmas

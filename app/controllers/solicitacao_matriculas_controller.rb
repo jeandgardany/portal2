@@ -1,5 +1,6 @@
 class SolicitacaoMatriculasController < ApplicationController
   before_action :set_solicitacao_matricula, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /solicitacao_matriculas
   # GET /solicitacao_matriculas.json

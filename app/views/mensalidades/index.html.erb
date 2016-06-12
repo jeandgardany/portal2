@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Mensalidades</h1>
-
-<table>
+<%- model_class = Funcao -%>
+<div class="page-header">
+  <h1><%= "Mensalidades" %></h1>
+</div>
+<table  class="table table-striped">
   <thead>
     <tr>
+      <th>Mensalidade &nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Pago &nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Mes &nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Ano &nbsp;&nbsp;&nbsp;&nbsp;</th>
@@ -18,18 +20,26 @@
   <tbody>
     <% @mensalidades.each do |mensalidade| %>
       <tr>
+        <td><%= valor_formatado(mensalidade.solicitacao_matricula.matriculas.inject(0){|sum, matricula| sum + matricula.turma.valor}) %>
+        </td>
         <td><%= mensalidade.pago %></td>
         <td><%= mensalidade.mes %></td>
         <td><%= mensalidade.ano %></td>
         <td><%= mensalidade.aluno.nome %></td>
         <td><%= mensalidade.solicitacao_matricula.id %></td>
         <td>
-        <%= link_to 'Mostrar', mensalidade %>
-        <%= link_to 'Editar', edit_mensalidade_path(mensalidade) %>
-        <%= link_to 'Apagar', mensalidade, method: :delete, data: { confirm: 'Você tem certeza?' } %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_mensalidade_path(mensalidade), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      mensalidade_path(mensalidade),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem certeza?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+          <%= link_to 'Mostrar', mensalidade, :class => 'btn btn-default btn-xs'%>
         </td>
       </tr>
-    <% end %>
+    <% end %>    
+    
   </tbody>
 </table>
 

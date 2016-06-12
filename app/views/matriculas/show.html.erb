@@ -46,6 +46,10 @@
 </dl><dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:turma) %>:</strong></dt>
   <dd><%= @matricula.turma_codigo %></dd>
+  
+</dl><dl class="dl-horizontal">
+  <dt><strong><%= "Valor" %>:</strong></dt>
+  <dd><%= valor_formatado(@matricula.turma.valor) %></dd>
 <br>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

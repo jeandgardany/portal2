@@ -7,6 +7,10 @@ class Turma < ActiveRecord::Base
   validates :codigo, :turno, :semestre, :capacidade, presence: true 
   validates :codigo, uniqueness: true
 
+  
+  require 'active_support'
+  require 'active_support/core_ext/enumerable'
+
   def funcionario_nome
     if self.funcionario.blank?
       "Sem Cadastro"
@@ -21,5 +25,4 @@ class Turma < ActiveRecord::Base
       self.disciplina.nome
     end
   end
-
 end
