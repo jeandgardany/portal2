@@ -1,13 +1,12 @@
 class MensalidadesController < ApplicationController
   before_action :set_mensalidade, only: [:show, :edit, :update, :destroy]
 
+
   # GET /mensalidades
   # GET /mensalidades.json
   def index
-    @mensalidades = Mensalidade.all
-    #@solicitacao_matriculas = SolicitacaoMatricula.all
-    #solicitacao_matricula = @solicitacao_matriculas
-    #@mensalidades.solicitacao_matricula = Mensalidade.solicitacao_matricula.all
+    @q = Mensalidade.ransack(params[:q].try(:merge, m: 'or' ))
+    @mensalidades = @q.result(distinct: true).page(params[:page])
   end
 
   # GET /mensalidades/1

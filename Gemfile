@@ -7,6 +7,7 @@ gem 'activerecord', '~> 4.2', '>= 4.2.6'
 gem 'mysql2', '>= 0.4.4', '< 0.5'
 
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'ransack'
 
 gem 'devise'
 gem 'devise-bootstrap-views'

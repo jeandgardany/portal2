@@ -13,9 +13,10 @@
       <th><%= model_class.human_attribute_name(:ap2) %></th>
       <th><%= model_class.human_attribute_name(:ap3) %></th>
       <th><%= model_class.human_attribute_name(:faltas) %></th>
-      <th><%= model_class.human_attribute_name(:aluno) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th><%= "Funcionário" %>&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th><%= "Curso" %>&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= model_class.human_attribute_name(:aluno) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= "Funcionário" %>&nbsp;&nbsp;</th>
+      <th><%= "Turma" %>&nbsp;&nbsp;&nbsp;</th>
+      <th><%= "Disciplina" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= model_class.human_attribute_name(:created_at) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
@@ -35,6 +36,7 @@
         <td><%= matricula.aluno.nome %></td>
         <td><%= matricula.funcionario.nome %></td>
         <td><%= matricula.turma.codigo %></td>
+        <td><%= matricula.turma.disciplina.nome %></td>
         <td><%=l matricula.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

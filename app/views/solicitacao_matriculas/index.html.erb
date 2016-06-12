@@ -45,4 +45,6 @@
 
 <br>
 
-<%= link_to 'Nova Solicitação de matricula', new_solicitacao_matricula_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_solicitacao_matricula_path,
+            :class => 'btn btn-primary' %>

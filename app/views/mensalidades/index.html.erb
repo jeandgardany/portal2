@@ -1,4 +1,16 @@
 <p id="notice"><%= notice %></p>
+<%= search_form_for @q do |f| %>
+
+  <!--# Search if the name field contains... -->
+  <%= f.label :mes_eq, "Mês:" %>
+  <%= f.search_field :mes_eq %>
+  <%= f.label :ano_eq, "Ano:" %>
+  <%= f.search_field :ano_eq %>
+  <%= f.label :pago_eq, "Pago:" %>
+  <%= f.search_field :pago_eq %>
+
+  <%= f.submit %>
+<% end %>
 <%- model_class = Funcao -%>
 <div class="page-header">
   <h1><%= "Mensalidades" %></h1>
@@ -7,10 +19,10 @@
   <thead>
     <tr>
       <th>Mensalidade &nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Pago &nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= sort_link(@q, :pago) %> &nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Mes &nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Ano &nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Aluno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= sort_link(@q, :aluno_id) %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Solicitacao matricula &nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th colspan="3"></th>
@@ -39,10 +51,11 @@
         </td>
       </tr>
     <% end %>    
-    
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'Nova Mensalidade', new_mensalidade_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_mensalidade_path,
+            :class => 'btn btn-primary' %>

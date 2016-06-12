@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :mensalidades
+  resources :mensalidades do
+    get :auto_complete_search, :on => :collection
+  end
   resources :solicitacao_matriculas
   resources :matriculas
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

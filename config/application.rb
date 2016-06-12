@@ -30,5 +30,7 @@ module Portal2
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     config.i18n.fallbacks = [ :en ]
+    # @file: config/application.rb
+    config.assets.paths << Rails.root.join("vendor", "gems", "neo-viz", "app", "assets", "javascripts")
   end
 end

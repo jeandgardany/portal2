@@ -43,13 +43,19 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:funcionario_id) %>:</strong></dt>
   <dd><%= @matricula.funcionario.nome %></dd>
-</dl><dl class="dl-horizontal">
+</dl>
+<dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:turma) %>:</strong></dt>
   <dd><%= @matricula.turma_codigo %></dd>
-  
-</dl><dl class="dl-horizontal">
+</dl>
+<dl class="dl-horizontal">
+  <dt><strong><%= "Disciplina" %>:</strong></dt>
+  <dd><%= @matricula.turma.disciplina.nome %></dd>
+</dl>
+<dl class="dl-horizontal">
   <dt><strong><%= "Valor" %>:</strong></dt>
   <dd><%= valor_formatado(@matricula.turma.valor) %></dd>
+</dl>
 <br>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

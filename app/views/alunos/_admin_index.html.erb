@@ -1,4 +1,23 @@
+<%= search_form_for @q do |f| %>
 
+  <!--# Search if the name field contains... -->
+  <%= f.label :nome_cont, "Nome:" %>
+  <%= f.search_field :nome_cont %>
+  <%= f.label :matricula_cont, "Matrícula:" %>
+  <%= f.search_field :matricula_cont %>
+  <%= f.label :cpf_cont, "CPF:" %>
+  <%= f.search_field :cpf_cont %>
+
+  <!--# Search if an associated articles.title starts with... -->
+  <%#= f.label :articles_title_start %>
+  <%#= f.search_field :articles_title_start %>
+
+  <!--# Attributes may be chained. Search multiple attributes for one value... -->
+  <%#= f.label :name_or_description_or_email_or_articles_title_cont %>
+  <%#= f.search_field :name_or_description_or_email_or_articles_title_cont %>
+
+  <%= f.submit %>
+<% end %>
 <%- model_class = Aluno -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
@@ -6,23 +25,23 @@
 <table class="table table-striped" >
   <thead>
     <tr>
-      <th><%= "Matricula" %></th>
-      <th><%= model_class.human_attribute_name(:nome) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th><%= sort_link(@q, :matricula) %></th>
+      <th><%= sort_link(@q, :nome) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= "Nascimento" %></th>
       <th><%= "Endereço" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th><%= "Telefone" %></th>
       <th><%= model_class.human_attribute_name(:cpf) %></th>
       <th><%= model_class.human_attribute_name(:rg) %></th>
-      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= sort_link(@q, :status) %></th>
       <th><%= "Usuário" %></th>
-      <th><%= model_class.human_attribute_name(:sexo) %></th>
+      <th><%= sort_link(@q, :sexo) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     <% @alunos.each do |aluno| %>
       <tr>
-        <td><%= aluno.matricula %></td><!--O metodo curso_nome esta no models aluno, serve pra corrigir erro de nada cadastrado.-->
+        <td><%= aluno.matricula %></td>
         <td><%= aluno.nome %></td>
         <td><%= aluno.nascimento %></td>
         <td><%= aluno.endereco %></td>

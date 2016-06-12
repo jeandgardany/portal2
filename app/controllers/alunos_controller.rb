@@ -7,7 +7,13 @@ class AlunosController < ApplicationController
   # GET /alunos
   # GET /alunos.json
   def index
-    @alunos = Aluno.all.page(params['page']).per(5)
+    @q = Aluno.ransack(params[:q].try(:merge, m: 'or' ))
+    @alunos = @q.result(distinct: true).page(params[:page])
+    #if params[:search]
+    #  @alunos = Aluno.search(params[:search])
+    #else
+    #  @alunos = Aluno.all.page(params['page']).per(5)
+    #end
   end
 
   # GET /alunos/1
