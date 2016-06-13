@@ -5,10 +5,10 @@ class MatriculasController < ApplicationController
   # GET /matriculas
   # GET /matriculas.json
   def index
-    @matriculas = Matricula.all.page(params['page']).per(5)
-  end
-
-  # GET /matriculas/1
+    @q = Matricula.ransack(params[:q].try(:merge, m: 'or' ))
+    @matriculas = @q.result.includes(:aluno).page(params[:page]).per(10)
+    #@matriculas = Matricula.all.page(params['page']).per(5)
+  end# GET /matriculas/1
   # GET /matriculas/1.json
   def show
   end
@@ -16,10 +16,6 @@ class MatriculasController < ApplicationController
   # GET /matriculas/new
   def new
     @matricula = Matricula.new
-    #@matricula.build_turmas
-    #@turmas = @matricula.turmas.all
-    #@disciplinas = @matricula.turma.disciplinas.all
-    #@matricula.build_alunos_disciplinas
   end
 
   # GET /matriculas/1/edit

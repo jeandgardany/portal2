@@ -24,6 +24,7 @@
   <strong>Solicitacao Matricula:</strong>
   <%= @mensalidade.solicitacao_matricula.id %>
 </p>
+<p>
 <strong>Mensalidade:</strong>
   <%= valor_formatado(@mensalidade.solicitacao_matricula.matriculas.inject(0){|sum, matricula| sum + matricula.turma.valor}) %>
   </p>

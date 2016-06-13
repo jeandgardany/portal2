@@ -1,19 +1,11 @@
 class AlunosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_aluno, only: [:show, :edit, :update, :destroy]
-  before_action :set_users, only: [:new, :show, :edit, :update, :create]
-  before_action :set_matriculas, only: [:new, :show, :edit, :update, :create]
+  before_action :set_calendario, only: [:show, :edit, :update, :destroy]
 
   # GET /alunos
   # GET /alunos.json
   def index
-    @q = Aluno.ransack(params[:q].try(:merge, m: 'or' ))
-    @alunos = @q.result(distinct: true).page(params[:page]).per(5)
-    #if params[:search]
-    #  @alunos = Aluno.search(params[:search])
-    #else
-    #  @alunos = Aluno.all.page(params['page']).per(5)
-    #end
+    @calendarios = Calendario.all.page(params['page']).per(5)
   end
 
   # GET /alunos/1

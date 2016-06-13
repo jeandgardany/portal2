@@ -1,7 +1,7 @@
 class Aluno < ActiveRecord::Base
   belongs_to :user
   has_many :matriculas
-  belongs_to :solicitacao_matricula
+  has_one :solicitacao_matricula
   has_many :mensalidades
   
   validates :matricula, :nome, :nascimento, :endereco, :telefone, :rg, :status, :sexo, presence: {message: 'não pode ficar em branco'}
@@ -14,9 +14,6 @@ class Aluno < ActiveRecord::Base
   #validates :cpf, presence: { :if => :check_cpf }
 
   user = User.first
-
-  scope :search2, ->(query) { where("nome like ?", "%#{query}%")}
-  scope :search2, ->(query) { where("matricula like ?", "%#{query}%")}
 
   #def self.search(query)
   #  where("nome like ?", "%#{query}%") // esse metodo é mesmo que o scope de cima.

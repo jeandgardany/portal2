@@ -1,3 +1,13 @@
+<%= search_form_for @q do |f| %>
+
+  <!--# Search if the name field contains... -->
+  <%= f.label :semestre_eq, "Semestre:" %>
+  <%= f.search_field :semestre_eq %>
+  <%= f.label :aluno_nome_cont, "Aluno:" %>
+  <%= f.search_field :aluno_nome_cont %>
+
+  <%= f.submit %>
+<% end %>
 <%- model_class = Funcao -%>
 <div class="page-header">
   <h1><%= "Matrículas" %></h1>

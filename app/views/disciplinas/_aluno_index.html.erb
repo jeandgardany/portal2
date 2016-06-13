@@ -6,14 +6,8 @@
   <h2>Bem vindo: <%= @usuario.aluno.nome %></h2>
   <hr>
   <dt><strong>Suas Disciplinas Matriculadas:</strong></dt>
-  <% @usuario.aluno.matriculas.each do |mat| %>
-  <li><%= "Código: #{mat.turma.disciplina.codigo} - Nome: #{mat.turma.disciplina.nome}" %></li>
+  <% @usuario.aluno.matriculas.where("semestre = 2016.2").each do |mat| %>
+  <li><%= "Código: #{mat.turma.disciplina.codigo} - Nome: #{mat.turma.disciplina.nome} - Semestre: #{mat.semestre}" %></li>
   <% end %>
-  
-      <li><%= link_to 'Editar', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-
     </ul>
 </body>
-    
-

@@ -6,7 +6,7 @@ class MensalidadesController < ApplicationController
   # GET /mensalidades.json
   def index
     @q = Mensalidade.ransack(params[:q].try(:merge, m: 'or' ))
-    @mensalidades = @q.result(distinct: true).page(params[:page])
+    @mensalidades = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
   # GET /mensalidades/1

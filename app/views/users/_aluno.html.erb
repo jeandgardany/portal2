@@ -9,11 +9,8 @@
      <p><li>Nome: <%= @usuario.aluno_nome %></li></p>
      <p><li>E-mail: <%= @usuario.email %></li></p>
      <p><li>Mensalidade: <%= valor_formatado(@usuario.aluno.solicitacao_matricula.valor) %></li></p>
-     <p><li>Endereço: <%= @usuario.aluno_endereco %></li></p>
+     <p><li>Endereço: <%= @usuario.aluno_endereco %></li></p> <!-- metod aluno_endereco esta no model user, usado pra nao da erro quando não tem nenhuma luno cadastrado -->
      <p><li>Cadastrado: <%= @usuario.aluno_created_at %></li></p>
-
-      <li><%= link_to 'Editar', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
 
     </ul>
 </body>

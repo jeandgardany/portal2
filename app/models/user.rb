@@ -8,6 +8,13 @@ class User < ActiveRecord::Base
   has_many :funcionarios
   has_one :aluno
 
+  def solicitacao_matricula_valor
+    if self.solicitacao_matricula.blank?
+      "Sem Cadastro"
+    else
+      self.solicitacao_matricula.valor
+    end
+  end
   def aluno_nome
     if self.aluno.blank?
       "Sem Cadastro"

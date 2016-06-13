@@ -8,6 +8,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Id </th>
       <th>Valor &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Ano &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
       <th>Semestre &nbsp;&nbsp;&nbsp;&nbsp;</th>
@@ -22,6 +23,7 @@
   <tbody>
     <% @solicitacao_matriculas.each do |solicitacao_matricula| %>
       <tr>
+        <td><%= solicitacao_matricula.id %></td>
         <td><%= valor_formatado(solicitacao_matricula.valor) %></td>
         <td><%= solicitacao_matricula.ano %></td>
         <td><%= solicitacao_matricula.semestre %></td>

@@ -1,61 +1,8 @@
-<p id="notice"><%= notice %></p>
-<%= search_form_for @q do |f| %>
-
-  <!--# Search if the name field contains... -->
-  <%= f.label :mes_eq, "Mês:" %>
-  <%= f.search_field :mes_eq %>
-  <%= f.label :ano_eq, "Ano:" %>
-  <%= f.search_field :ano_eq %>
-  <%= f.label :pago_eq, "Pago:" %>
-  <%= f.search_field :pago_eq %>
-
-  <%= f.submit %>
-<% end %>
-<%- model_class = Funcao -%>
-<div class="page-header">
-  <h1><%= "Mensalidades" %></h1>
-</div>
-<table  class="table table-striped">
-  <thead>
-    <tr>
-      <th>Mensalidade &nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th><%= sort_link(@q, :pago) %> &nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Mes &nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Ano &nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th><%= sort_link(@q, :aluno_id) %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th>Solicitacao matricula &nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th><%=t '.actions', :default => t("helpers.actions") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @mensalidades.each do |mensalidade| %>
-      <tr>
-        <td><%= valor_formatado(mensalidade.solicitacao_matricula.matriculas.inject(0){|sum, matricula| sum + matricula.turma.valor}) %>
-        </td>
-        <td><%= mensalidade.pago %></td>
-        <td><%= mensalidade.mes %></td>
-        <td><%= mensalidade.ano %></td>
-        <td><%= mensalidade.aluno.nome %></td>
-        <td><%= mensalidade.solicitacao_matricula.id %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_mensalidade_path(mensalidade), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      mensalidade_path(mensalidade),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Você tem certeza?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-          <%= link_to 'Mostrar', mensalidade, :class => 'btn btn-default btn-xs'%>
-        </td>
-      </tr>
-    <% end %>    
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_mensalidade_path,
-            :class => 'btn btn-primary' %>
+<% @usuario = current_user %>
+<% if @usuario.aluno? %>
+<%= render partial: "aluno" %>
+<% elsif @usuario.administrador? or @usuario.atendente? or @usuario.coordenador? %>
+<%= render partial: "users" %>
+<% else %>
+<% flash[:notice] = 'Você não tem permissão para fazer esta ação' %>
+<% end %> 

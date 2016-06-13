@@ -4,13 +4,10 @@
       <% @usuario = current_user %>
     <h2>Bem vindo: <%= @usuario.aluno.nome %></h2>
     <hr>
-     <% @usuario.aluno.matriculas.each do |mat| %>
-     <p><li><%= "Turma: #{mat.turma.codigo} - Disciplina: #{mat.turma.disciplina.nome} AP1: #{mat.ap1}" %></li></p>
-     <p><li><%= "Turma: #{mat.turma.codigo} - Disciplina: #{mat.turma.disciplina.nome} AP2: #{mat.ap2}" %></li></p><p><li><%= "Turma: #{mat.turma.codigo} - Disciplina: #{mat.turma.disciplina.nome} AP3: #{mat.ap3}" %></li></p>
+     <% @usuario.aluno.matriculas.where("semestre = 2016.2").each do |mat| %>
+     <p><li><%= "Turma: #{mat.turma.codigo} - Disciplina: #{mat.turma.disciplina.nome} - Semestre: #{mat.semestre} - AP1: #{mat.ap1}" %></li></p>
+     <p><li><%= "Turma: #{mat.turma.codigo} - Disciplina: #{mat.turma.disciplina.nome} - Semestre: #{mat.semestre} - AP2: #{mat.ap2}" %></li></p><p><li><%= "Turma: #{mat.turma.codigo} - Disciplina: #{mat.turma.disciplina.nome} - Semestre: #{mat.semestre} - AP3: #{mat.ap3}" %></li></p>
      <% end %>
-    
-      <li><%= link_to 'Editar', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
     </ul>
     
     

@@ -1,0 +1,16 @@
+<body>
+  
+    <ul>
+      <% @usuario = current_user %>
+  <h2>Bem vindo: <%= @usuario.aluno.nome %></h2>
+  <hr>
+  <dt><strong>Suas Mensalidades:</strong></dt>
+  <% @usuario.aluno.mensalidades.each do |mensal| %>
+  <p>
+    <li>Mensalidade: <%= valor_formatado(mensal.solicitacao_matricula.matriculas.inject(0){|sum, matricula| sum + matricula.turma.valor}) %></li>
+    <%= "Mês: #{mensal.mes} - Ano: #{mensal.ano} - Pago: #{formatar_boolean(mensal.pago)}" %>
+  </p>
+  <% end %>
+
+</body>
+    

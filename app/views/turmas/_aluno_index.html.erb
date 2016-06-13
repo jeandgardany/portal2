@@ -2,20 +2,17 @@
   
     <ul>
       <% @usuario = current_user %>
-  <h2>Turmas de: <%= @usuario.aluno.nome %></h2>
+    <h2>Turmas de: <%= @usuario.aluno.nome %></h2>
      <p><li>Matrícula: <%= @usuario.aluno.matricula %></li></p>
      <p><li>Nome: <%= @usuario.aluno.nome %></li></p>
      <p><li>E-mail: <%= @usuario.email %></li></p>
      <p><li>Qtd. de Turmas: <%= @usuario.aluno.matriculas.size %></li></p>
      <p><li>Turmas:</li></p>
-     <% @usuario.aluno.matriculas.each do |mat| %>
-     <% @mat = mat %>
-    <p><%= "#{mat.turma.codigo} - #{mat.turma.semestre}" %></p>
+     <% @usuario.aluno.matriculas.where("semestre = 2016.2").each do |mat| %>
+     <% Matricula.where("semestre = 2016.2", params[:orders])%>
+    <p><%= "#{mat.turma.codigo} - #{mat.turma.turno} - #{mat.semestre}" %></p>
     <% end %>
    
-      <li><%= link_to 'Editar', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Sair", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
-
     </ul>
 </body>
     
